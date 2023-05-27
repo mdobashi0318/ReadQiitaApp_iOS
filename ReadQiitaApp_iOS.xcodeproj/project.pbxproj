@@ -14,6 +14,11 @@
 		6D201C4029ED83AF003A3879 /* ReadQiitaApp_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C3F29ED83AF003A3879 /* ReadQiitaApp_iOSTests.swift */; };
 		6D201C4A29ED83AF003A3879 /* ReadQiitaApp_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C4929ED83AF003A3879 /* ReadQiitaApp_iOSUITests.swift */; };
 		6D201C4C29ED83AF003A3879 /* ReadQiitaApp_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C4B29ED83AF003A3879 /* ReadQiitaApp_iOSUITestsLaunchTests.swift */; };
+		6D379E6D29F023A500465FD0 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D379E6C29F023A500465FD0 /* Article.swift */; };
+		6D379E6F29F023D700465FD0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D379E6E29F023D700465FD0 /* User.swift */; };
+		6D379E7129F0242E00465FD0 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D379E7029F0242E00465FD0 /* Tags.swift */; };
+		6DB871ED2A1FB71A0095C1CB /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB871EC2A1FB71A0095C1CB /* ArticleViewModel.swift */; };
+		6DB871EF2A1FB8190095C1CB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB871EE2A1FB8190095C1CB /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,12 @@
 		6D201C4529ED83AF003A3879 /* ReadQiitaApp_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadQiitaApp_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D201C4929ED83AF003A3879 /* ReadQiitaApp_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadQiitaApp_iOSUITests.swift; sourceTree = "<group>"; };
 		6D201C4B29ED83AF003A3879 /* ReadQiitaApp_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadQiitaApp_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6D379E6C29F023A500465FD0 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		6D379E6E29F023D700465FD0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6D379E7029F0242E00465FD0 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		6D749DEE2A1FAC0D001AFDBB /* ReadQiitaApp-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ReadQiitaApp-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
+		6DB871EC2A1FB71A0095C1CB /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
+		6DB871EE2A1FB8190095C1CB /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +105,14 @@
 		6D201C2D29ED83AE003A3879 /* ReadQiitaApp_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				6D749DEE2A1FAC0D001AFDBB /* ReadQiitaApp-iOS-Info.plist */,
 				6D201C2E29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift */,
+				6DB871EE2A1FB8190095C1CB /* APIManager.swift */,
 				6D201C3029ED83AE003A3879 /* ContentView.swift */,
+				6D379E6C29F023A500465FD0 /* Article.swift */,
+				6DB871EC2A1FB71A0095C1CB /* ArticleViewModel.swift */,
+				6D379E7029F0242E00465FD0 /* Tags.swift */,
+				6D379E6E29F023D700465FD0 /* User.swift */,
 				6D201C3229ED83AE003A3879 /* Assets.xcassets */,
 				6D201C3429ED83AE003A3879 /* Preview Content */,
 			);
@@ -257,8 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D379E6F29F023D700465FD0 /* User.swift in Sources */,
 				6D201C3129ED83AE003A3879 /* ContentView.swift in Sources */,
 				6D201C2F29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift in Sources */,
+				6DB871ED2A1FB71A0095C1CB /* ArticleViewModel.swift in Sources */,
+				6D379E7129F0242E00465FD0 /* Tags.swift in Sources */,
+				6D379E6D29F023A500465FD0 /* Article.swift in Sources */,
+				6DB871EF2A1FB8190095C1CB /* APIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,11 +442,13 @@
 				DEVELOPMENT_TEAM = 7RPFL7EXKD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ReadQiitaApp-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,11 +473,13 @@
 				DEVELOPMENT_TEAM = 7RPFL7EXKD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ReadQiitaApp-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

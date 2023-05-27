@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var viewModel = ArticleViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
+                articleList()
+            }
         }
+    }
+    
+    
+    private func articleList() -> some View {
+        List {
+            ForEach(0..<viewModel.articles.count, id: \.self) { row in
+                Text(viewModel.articles[row].title)
+            }
+        }
+        .listStyle(.plain)
         .padding()
+        .navigationTitle(Text("ReadQiitaApp"))
     }
 }
 
@@ -24,3 +39,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+
