@@ -25,7 +25,7 @@ struct ContentView: View {
     private func articleList() -> some View {
         List {
             ForEach(0..<viewModel.articles.count, id: \.self) { row in
-                Text(viewModel.articles[row].title)
+                ArticleRow(article: viewModel.articles[row])
             }
         }
         .listStyle(.plain)
