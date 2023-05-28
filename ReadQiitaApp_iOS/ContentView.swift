@@ -25,7 +25,11 @@ struct ContentView: View {
     private func articleList() -> some View {
         List {
             ForEach(0..<viewModel.articles.count, id: \.self) { row in
-                ArticleRow(article: viewModel.articles[row])
+                NavigationLink(destination:
+                                ArticleView(article: viewModel.articles[row])
+                ) {
+                    ArticleRow(article: viewModel.articles[row])
+                }
             }
         }
         .listStyle(.plain)
