@@ -24,7 +24,8 @@ struct ArticleRow: View {
                 
             
             HStack(alignment: .top) {
-                Image(systemName: "tag")
+                Image(systemName: "tag.fill")
+                    .rotation3DEffect(.degrees(270), axis: (x: 0, y: 0, z: 1))
                 Text(tags())
             }
             HStack {
