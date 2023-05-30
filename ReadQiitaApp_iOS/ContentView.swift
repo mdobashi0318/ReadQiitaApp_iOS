@@ -35,6 +35,11 @@ struct ContentView: View {
         .listStyle(.plain)
         .padding()
         .navigationTitle(Text("ReadQiitaApp"))
+        .refreshable {
+            Task {
+                await viewModel.getItems()
+            }   
+        }
     }
 }
 
