@@ -25,7 +25,7 @@ struct APIManager {
         do {
             return try JSONDecoder().decode([Article].self, from: data)
         } catch {
-            throw error
+            throw APIError.init(message: error.localizedDescription)
         }
         
         

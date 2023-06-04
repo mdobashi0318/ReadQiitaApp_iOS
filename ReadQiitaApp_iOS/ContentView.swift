@@ -36,9 +36,10 @@ struct ContentView: View {
         .padding()
         .navigationTitle(Text("ReadQiitaApp"))
         .refreshable {
-            Task {
-                await viewModel.getItems()
-            }   
+            await viewModel.getItems()
+        }
+        .alert("記事一覧の取得に失敗しました。", isPresented: $viewModel.isError) {
+            Button("閉じる"){}
         }
     }
 }

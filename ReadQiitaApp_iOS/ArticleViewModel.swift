@@ -28,6 +28,7 @@ class ArticleViewModel: ObservableObject {
         do {
             articles = try await APIManager.get()
         } catch {
+            print("ArticleViewModel.getItems() Error = \(error)")
             isError = true
         }
         isLoading = false
