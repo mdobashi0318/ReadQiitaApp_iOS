@@ -11,19 +11,24 @@ struct APIManager {
     
     private static let baseUrl = "https://qiita.com/api/v2/"
     
-    static func get() async throws -> [Article] {
-        let (data, urlResponse) = try await URLSession.shared.data(for: URLRequest(url: URL(string: baseUrl + "items")!))
+    static func get<T: Codable>(request: String) async throws -> T {
+        
+        guard let url = URL(string: baseUrl + request) else {
+            throw APIError.init(message: "url Error")
+        }
+        
+        let (data, urlResponse) = try await URLSession.shared.data(from: url)
         
         guard let urlResponse = urlResponse as? HTTPURLResponse else {
-            throw APIError.init(message: "")
+            throw APIError.init(message: "urlResponse Error")
         }
         
         guard 200 ..< 300 ~= urlResponse.statusCode else {
-            throw APIError.init(message: "")
+            throw APIError.init(message: "statusCode: \(urlResponse.statusCode)")
         }
         
         do {
-            return try JSONDecoder().decode([Article].self, from: data)
+            return try JSONDecoder().decode(T.self, from: data)
         } catch {
             throw APIError.init(message: error.localizedDescription)
         }

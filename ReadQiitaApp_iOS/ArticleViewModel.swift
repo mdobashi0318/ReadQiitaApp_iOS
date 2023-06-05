@@ -21,7 +21,7 @@ class ArticleViewModel: ObservableObject {
     func getItems() async {
         isLoading = true
         do {
-            articles = try await APIManager.get()
+            articles = try await APIManager.get(request: "items")
         } catch {
             print("ArticleViewModel.getItems() Error = \(error)")
             isError = true
