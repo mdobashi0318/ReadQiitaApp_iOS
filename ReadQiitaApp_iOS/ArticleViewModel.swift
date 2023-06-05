@@ -15,12 +15,7 @@ class ArticleViewModel: ObservableObject {
     @Published var isError = false
     
     @Published var isLoading = false
-    
-    init() {
-        Task {
-            await getItems()
-        }
-    }
+        
     
     @MainActor
     func getItems() async {

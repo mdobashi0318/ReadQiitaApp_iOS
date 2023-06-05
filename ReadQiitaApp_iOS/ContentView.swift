@@ -13,10 +13,11 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            if viewModel.isLoading {
-                ProgressView()
-            } else {
+            ZStack {
                 articleList()
+                if viewModel.isLoading {
+                    ProgressView()
+                }
             }
         }
     }
@@ -36,6 +37,9 @@ struct ContentView: View {
         .padding()
         .navigationTitle(Text("ReadQiitaApp"))
         .refreshable {
+            await viewModel.getItems()
+        }
+        .task {
             await viewModel.getItems()
         }
         .alert("記事一覧の取得に失敗しました。", isPresented: $viewModel.isError) {
