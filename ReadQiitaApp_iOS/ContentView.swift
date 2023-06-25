@@ -11,6 +11,8 @@ struct ContentView: View {
     
     @StateObject var viewModel = ArticleViewModel()
     
+    @State var isBookmarkSheet = false
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -19,7 +21,21 @@ struct ContentView: View {
                     ProgressView()
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isBookmarkSheet.toggle()
+                    }) {
+                        Image(systemName: "bookmark.fill")
+                    }
+                }
+            }
+            .fullScreenCover(isPresented: $isBookmarkSheet) {
+                BookmarkList(isBookmarkSheet: $isBookmarkSheet)
+            }
         }
+        
+        
     }
     
     
@@ -27,14 +43,13 @@ struct ContentView: View {
         List {
             ForEach(0..<viewModel.articles.count, id: \.self) { row in
                 NavigationLink(destination:
-                                ArticleView(article: viewModel.articles[row])
+                                ArticleView(id: viewModel.articles[row].id, title: viewModel.articles[row].title, url: viewModel.articles[row].url)
                 ) {
                     ArticleRow(article: viewModel.articles[row])
                 }
             }
         }
         .listStyle(.plain)
-        .padding()
         .navigationTitle(Text("ReadQiitaApp"))
         .refreshable {
             await viewModel.getItems()

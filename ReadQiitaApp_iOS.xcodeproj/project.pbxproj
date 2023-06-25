@@ -14,6 +14,9 @@
 		6D201C4029ED83AF003A3879 /* ReadQiitaApp_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C3F29ED83AF003A3879 /* ReadQiitaApp_iOSTests.swift */; };
 		6D201C4A29ED83AF003A3879 /* ReadQiitaApp_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C4929ED83AF003A3879 /* ReadQiitaApp_iOSUITests.swift */; };
 		6D201C4C29ED83AF003A3879 /* ReadQiitaApp_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C4B29ED83AF003A3879 /* ReadQiitaApp_iOSUITestsLaunchTests.swift */; };
+		6D2C84992A469727007C0FA2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 6D2C84982A469727007C0FA2 /* Realm */; };
+		6D2C849B2A469727007C0FA2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6D2C849A2A469727007C0FA2 /* RealmSwift */; };
+		6D2C849D2A469B66007C0FA2 /* BookmarkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2C849C2A469B66007C0FA2 /* BookmarkModel.swift */; };
 		6D379E6D29F023A500465FD0 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D379E6C29F023A500465FD0 /* Article.swift */; };
 		6D379E6F29F023D700465FD0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D379E6E29F023D700465FD0 /* User.swift */; };
 		6D379E7129F0242E00465FD0 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D379E7029F0242E00465FD0 /* Tags.swift */; };
@@ -22,6 +25,7 @@
 		6DB59C4E2A232A11007B5E39 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB59C4D2A232A11007B5E39 /* ArticleView.swift */; };
 		6DB871ED2A1FB71A0095C1CB /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB871EC2A1FB71A0095C1CB /* ArticleViewModel.swift */; };
 		6DB871EF2A1FB8190095C1CB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB871EE2A1FB8190095C1CB /* APIManager.swift */; };
+		6DF1FF182A4828D50039CF3B /* BookmarkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF1FF172A4828D50039CF3B /* BookmarkList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,7 @@
 		6D201C4529ED83AF003A3879 /* ReadQiitaApp_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadQiitaApp_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D201C4929ED83AF003A3879 /* ReadQiitaApp_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadQiitaApp_iOSUITests.swift; sourceTree = "<group>"; };
 		6D201C4B29ED83AF003A3879 /* ReadQiitaApp_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadQiitaApp_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6D2C849C2A469B66007C0FA2 /* BookmarkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkModel.swift; sourceTree = "<group>"; };
 		6D379E6C29F023A500465FD0 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		6D379E6E29F023D700465FD0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6D379E7029F0242E00465FD0 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
@@ -61,6 +66,7 @@
 		6DB59C4D2A232A11007B5E39 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		6DB871EC2A1FB71A0095C1CB /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
 		6DB871EE2A1FB8190095C1CB /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		6DF1FF172A4828D50039CF3B /* BookmarkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D2C849B2A469727007C0FA2 /* RealmSwift in Frameworks */,
+				6D2C84992A469727007C0FA2 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +124,9 @@
 				6DB871EE2A1FB8190095C1CB /* APIManager.swift */,
 				6DB59C4D2A232A11007B5E39 /* ArticleView.swift */,
 				6D201C3029ED83AE003A3879 /* ContentView.swift */,
+				6DF1FF172A4828D50039CF3B /* BookmarkList.swift */,
 				6D379E6C29F023A500465FD0 /* Article.swift */,
+				6D2C849C2A469B66007C0FA2 /* BookmarkModel.swift */,
 				6DA3F4562A222C60006AD350 /* ArticleRow.swift */,
 				6DB59C4B2A22FABB007B5E39 /* WebView.swift */,
 				6DB871EC2A1FB71A0095C1CB /* ArticleViewModel.swift */,
@@ -169,6 +179,10 @@
 			dependencies = (
 			);
 			name = ReadQiitaApp_iOS;
+			packageProductDependencies = (
+				6D2C84982A469727007C0FA2 /* Realm */,
+				6D2C849A2A469727007C0FA2 /* RealmSwift */,
+			);
 			productName = ReadQiitaApp_iOS;
 			productReference = 6D201C2B29ED83AE003A3879 /* ReadQiitaApp_iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -241,6 +255,9 @@
 				Base,
 			);
 			mainGroup = 6D201C2229ED83AE003A3879;
+			packageReferences = (
+				6D2C84972A469727007C0FA2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 6D201C2C29ED83AE003A3879 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -286,6 +303,7 @@
 				6D379E6F29F023D700465FD0 /* User.swift in Sources */,
 				6D201C3129ED83AE003A3879 /* ContentView.swift in Sources */,
 				6D201C2F29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift in Sources */,
+				6DF1FF182A4828D50039CF3B /* BookmarkList.swift in Sources */,
 				6DB871ED2A1FB71A0095C1CB /* ArticleViewModel.swift in Sources */,
 				6D379E7129F0242E00465FD0 /* Tags.swift in Sources */,
 				6D379E6D29F023A500465FD0 /* Article.swift in Sources */,
@@ -293,6 +311,7 @@
 				6DB59C4E2A232A11007B5E39 /* ArticleView.swift in Sources */,
 				6DB871EF2A1FB8190095C1CB /* APIManager.swift in Sources */,
 				6DA3F4572A222C60006AD350 /* ArticleRow.swift in Sources */,
+				6D2C849D2A469B66007C0FA2 /* BookmarkModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +640,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6D2C84972A469727007C0FA2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = exactVersion;
+				version = 10.40.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6D2C84982A469727007C0FA2 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6D2C84972A469727007C0FA2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		6D2C849A2A469727007C0FA2 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6D2C84972A469727007C0FA2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6D201C2329ED83AE003A3879 /* Project object */;
 }
