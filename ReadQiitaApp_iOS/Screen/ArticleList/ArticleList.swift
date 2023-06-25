@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ArticleList.swift
 //  ReadQiitaApp_iOS
 //
 //  Created by 土橋正晴 on 2023/04/17.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ArticleList: View {
     
     @StateObject var viewModel = ArticleViewModel()
     
@@ -65,7 +65,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ArticleList()
     }
 }
 

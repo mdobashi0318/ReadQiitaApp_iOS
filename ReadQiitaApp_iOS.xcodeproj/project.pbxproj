@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6D201C2F29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C2E29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift */; };
-		6D201C3129ED83AE003A3879 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C3029ED83AE003A3879 /* ContentView.swift */; };
+		6D201C3129ED83AE003A3879 /* ArticleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C3029ED83AE003A3879 /* ArticleList.swift */; };
 		6D201C3329ED83AE003A3879 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D201C3229ED83AE003A3879 /* Assets.xcassets */; };
 		6D201C3629ED83AE003A3879 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D201C3529ED83AE003A3879 /* Preview Assets.xcassets */; };
 		6D201C4029ED83AF003A3879 /* ReadQiitaApp_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C3F29ED83AF003A3879 /* ReadQiitaApp_iOSTests.swift */; };
@@ -48,7 +48,7 @@
 /* Begin PBXFileReference section */
 		6D201C2B29ED83AE003A3879 /* ReadQiitaApp_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadQiitaApp_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D201C2E29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadQiitaApp_iOSApp.swift; sourceTree = "<group>"; };
-		6D201C3029ED83AE003A3879 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6D201C3029ED83AE003A3879 /* ArticleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleList.swift; sourceTree = "<group>"; };
 		6D201C3229ED83AE003A3879 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D201C3529ED83AE003A3879 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6D201C3B29ED83AF003A3879 /* ReadQiitaApp_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadQiitaApp_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,17 +121,10 @@
 			children = (
 				6D749DEE2A1FAC0D001AFDBB /* ReadQiitaApp-iOS-Info.plist */,
 				6D201C2E29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift */,
-				6DB871EE2A1FB8190095C1CB /* APIManager.swift */,
-				6DB59C4D2A232A11007B5E39 /* ArticleView.swift */,
-				6D201C3029ED83AE003A3879 /* ContentView.swift */,
-				6DF1FF172A4828D50039CF3B /* BookmarkList.swift */,
-				6D379E6C29F023A500465FD0 /* Article.swift */,
-				6D2C849C2A469B66007C0FA2 /* BookmarkModel.swift */,
-				6DA3F4562A222C60006AD350 /* ArticleRow.swift */,
-				6DB59C4B2A22FABB007B5E39 /* WebView.swift */,
-				6DB871EC2A1FB71A0095C1CB /* ArticleViewModel.swift */,
-				6D379E7029F0242E00465FD0 /* Tags.swift */,
-				6D379E6E29F023D700465FD0 /* User.swift */,
+				6D41AB242A489B1C0093D6C7 /* Screen */,
+				6D41AB252A489B3C0093D6C7 /* View */,
+				6D41AB262A489BBE0093D6C7 /* Model */,
+				6D41AB282A489C710093D6C7 /* Manager */,
 				6D201C3229ED83AE003A3879 /* Assets.xcassets */,
 				6D201C3429ED83AE003A3879 /* Preview Content */,
 			);
@@ -161,6 +154,53 @@
 				6D201C4B29ED83AF003A3879 /* ReadQiitaApp_iOSUITestsLaunchTests.swift */,
 			);
 			path = ReadQiitaApp_iOSUITests;
+			sourceTree = "<group>";
+		};
+		6D41AB242A489B1C0093D6C7 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				6D41AB272A489C1D0093D6C7 /* ArticleList */,
+				6DB59C4D2A232A11007B5E39 /* ArticleView.swift */,
+				6DF1FF172A4828D50039CF3B /* BookmarkList.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		6D41AB252A489B3C0093D6C7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6DA3F4562A222C60006AD350 /* ArticleRow.swift */,
+				6DB59C4B2A22FABB007B5E39 /* WebView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6D41AB262A489BBE0093D6C7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6D2C849C2A469B66007C0FA2 /* BookmarkModel.swift */,
+				6D379E6C29F023A500465FD0 /* Article.swift */,
+				6D379E7029F0242E00465FD0 /* Tags.swift */,
+				6D379E6E29F023D700465FD0 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6D41AB272A489C1D0093D6C7 /* ArticleList */ = {
+			isa = PBXGroup;
+			children = (
+				6D201C3029ED83AE003A3879 /* ArticleList.swift */,
+				6DB871EC2A1FB71A0095C1CB /* ArticleViewModel.swift */,
+			);
+			path = ArticleList;
+			sourceTree = "<group>";
+		};
+		6D41AB282A489C710093D6C7 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				6DB871EE2A1FB8190095C1CB /* APIManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,7 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D379E6F29F023D700465FD0 /* User.swift in Sources */,
-				6D201C3129ED83AE003A3879 /* ContentView.swift in Sources */,
+				6D201C3129ED83AE003A3879 /* ArticleList.swift in Sources */,
 				6D201C2F29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift in Sources */,
 				6DF1FF182A4828D50039CF3B /* BookmarkList.swift in Sources */,
 				6DB871ED2A1FB71A0095C1CB /* ArticleViewModel.swift in Sources */,

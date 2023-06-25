@@ -36,7 +36,7 @@ struct ArticleView: View {
                             articles.id = id
                             articles.title = title
                             articles.url = url
-                            $bookmark.append(BookmarkModel(value: articles))
+                            $bookmark.append(articles)
                         }) {
                             Image(systemName: "plus")
                         }
