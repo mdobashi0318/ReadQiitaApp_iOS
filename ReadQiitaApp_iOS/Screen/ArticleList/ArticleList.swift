@@ -32,6 +32,11 @@ struct ArticleList: View {
             }
             .fullScreenCover(isPresented: $isBookmarkSheet) {
                 BookmarkList(isBookmarkSheet: $isBookmarkSheet)
+                    .onDisappear {
+                        Task {
+                            await viewModel.getItems_timeCheck()
+                        }
+                    }
             }
         }
         
@@ -55,7 +60,7 @@ struct ArticleList: View {
             await viewModel.getItems()
         }
         .task {
-            await viewModel.getItems()
+            await viewModel.getItems_timeCheck()
         }
         .alert("記事一覧の取得に失敗しました。", isPresented: $viewModel.isError) {
             Button("閉じる"){}
