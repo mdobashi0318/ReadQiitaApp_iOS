@@ -32,11 +32,11 @@ struct ArticleView: View {
                         }
                     } else {
                         Button(action: {
-                            let articles = BookmarkModel()
-                            articles.id = id
-                            articles.title = title
-                            articles.url = url
-                            $bookmark.append(articles)
+                            let article = BookmarkModel()
+                            article.id = id
+                            article.title = title
+                            article.url = url
+                            $bookmark.append(article)
                         }) {
                             Image(systemName: "plus")
                         }
