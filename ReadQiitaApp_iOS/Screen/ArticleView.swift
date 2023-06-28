@@ -19,6 +19,11 @@ struct ArticleView: View {
     
     @ObservedResults(BookmarkModel.self) var bookmark
     
+    /// ブックマークに追加・削除したときのアラート表示フラグ
+    @State var isAlertFlag = false
+    
+    @State var alertTitle = "ブックマークに追加しました。"
+    
     var body: some View {
         WebView(loardUrl: URL(string: url)!)
             .navigationTitle("記事")
@@ -27,6 +32,9 @@ struct ArticleView: View {
                     if let result = bookmark.first(where: {$0.id == id}) {
                         Button(action: {
                             $bookmark.remove(result)
+                            
+                            self.alertTitle = "ブックマークから削除しました。"
+                            isAlertFlag.toggle()
                         }) {
                             Image(systemName: "trash")
                         }
@@ -37,11 +45,17 @@ struct ArticleView: View {
                             article.title = title
                             article.url = url
                             $bookmark.append(article)
+                            
+                            self.alertTitle = "ブックマークに追加しました。"
+                            isAlertFlag.toggle()
                         }) {
                             Image(systemName: "plus")
                         }
                     }
                 }
             }
+            .alert(alertTitle, isPresented: $isAlertFlag, actions: {
+                Button(role: .none, action: {}, label: { Text("OK") })
+            })
     }
 }
