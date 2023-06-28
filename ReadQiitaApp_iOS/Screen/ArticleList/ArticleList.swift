@@ -62,9 +62,17 @@ struct ArticleList: View {
         .task {
             await viewModel.getItems_timeCheck()
         }
-        .alert("記事一覧の取得に失敗しました。", isPresented: $viewModel.isError) {
-            Button("閉じる"){}
-        }
+        .alert("通信に失敗しました", isPresented: $viewModel.isError, actions: {
+            Button(role: .cancel, action: {}, label: { Text("閉じる") })
+            
+            Button(role: .none, action: {
+                Task {
+                    await viewModel.getItems()
+                }
+            }, label: {
+                Text("再接続")
+            })
+        }, message: { Text("再接続しますか?") })
     }
 }
 
