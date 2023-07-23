@@ -40,11 +40,13 @@ struct ArticleListReducer: ReducerProtocol {
                     await send(.error(error.message))
                 }
             }
+            
         case let .response(list):
             state.isLoading = false
             state.list = list
             state.getTime = Date()
             return .none
+            
         case let .error(error):
             state.isLoading = false
             print(error)
@@ -58,14 +60,10 @@ struct ArticleListReducer: ReducerProtocol {
                     TextState("再接続")
                 })
             }
-            
             return .none
             
         case .timeCheck:
-            let time = state.getTime
-            let isList = state.list.isEmpty
-            
-            return .run { send in
+            return .run { [time = state.getTime, isList = state.list.isEmpty] send in
                 let nowTime: Date = Date()
                 let dateFormat = DateFormatter()
                 dateFormat.dateFormat = "HH:mm:ss"
