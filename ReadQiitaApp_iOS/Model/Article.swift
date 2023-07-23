@@ -17,3 +17,11 @@ struct Article: Codable {
     let url: String
     let id: String
 }
+
+
+extension Article: Equatable {
+    static func == (lhs: Article, rhs: Article) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+

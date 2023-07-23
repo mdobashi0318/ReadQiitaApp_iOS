@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D05F7AB2A6C1E8E009F6BD7 /* ArticleListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D05F7AA2A6C1E8E009F6BD7 /* ArticleListReducer.swift */; };
+		6D05F7AE2A6C2696009F6BD7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 6D05F7AD2A6C2696009F6BD7 /* ComposableArchitecture */; };
 		6D201C2F29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C2E29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift */; };
 		6D201C3129ED83AE003A3879 /* ArticleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C3029ED83AE003A3879 /* ArticleList.swift */; };
 		6D201C3329ED83AE003A3879 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D201C3229ED83AE003A3879 /* Assets.xcassets */; };
@@ -46,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D05F7AA2A6C1E8E009F6BD7 /* ArticleListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListReducer.swift; sourceTree = "<group>"; };
 		6D201C2B29ED83AE003A3879 /* ReadQiitaApp_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadQiitaApp_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D201C2E29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadQiitaApp_iOSApp.swift; sourceTree = "<group>"; };
 		6D201C3029ED83AE003A3879 /* ArticleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleList.swift; sourceTree = "<group>"; };
@@ -76,6 +79,7 @@
 			files = (
 				6D2C849B2A469727007C0FA2 /* RealmSwift in Frameworks */,
 				6D2C84992A469727007C0FA2 /* Realm in Frameworks */,
+				6D05F7AE2A6C2696009F6BD7 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +195,7 @@
 			children = (
 				6D201C3029ED83AE003A3879 /* ArticleList.swift */,
 				6DB871EC2A1FB71A0095C1CB /* ArticleViewModel.swift */,
+				6D05F7AA2A6C1E8E009F6BD7 /* ArticleListReducer.swift */,
 			);
 			path = ArticleList;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 			packageProductDependencies = (
 				6D2C84982A469727007C0FA2 /* Realm */,
 				6D2C849A2A469727007C0FA2 /* RealmSwift */,
+				6D05F7AD2A6C2696009F6BD7 /* ComposableArchitecture */,
 			);
 			productName = ReadQiitaApp_iOS;
 			productReference = 6D201C2B29ED83AE003A3879 /* ReadQiitaApp_iOS.app */;
@@ -297,6 +303,7 @@
 			mainGroup = 6D201C2229ED83AE003A3879;
 			packageReferences = (
 				6D2C84972A469727007C0FA2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				6D05F7AC2A6C2696009F6BD7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 6D201C2C29ED83AE003A3879 /* Products */;
 			projectDirPath = "";
@@ -342,6 +349,7 @@
 			files = (
 				6D379E6F29F023D700465FD0 /* User.swift in Sources */,
 				6D201C3129ED83AE003A3879 /* ArticleList.swift in Sources */,
+				6D05F7AB2A6C1E8E009F6BD7 /* ArticleListReducer.swift in Sources */,
 				6D201C2F29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift in Sources */,
 				6DF1FF182A4828D50039CF3B /* BookmarkList.swift in Sources */,
 				6DB871ED2A1FB71A0095C1CB /* ArticleViewModel.swift in Sources */,
@@ -682,6 +690,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6D05F7AC2A6C2696009F6BD7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = exactVersion;
+				version = 0.56.0;
+			};
+		};
 		6D2C84972A469727007C0FA2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift";
@@ -693,6 +709,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6D05F7AD2A6C2696009F6BD7 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6D05F7AC2A6C2696009F6BD7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
 		6D2C84982A469727007C0FA2 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6D2C84972A469727007C0FA2 /* XCRemoteSwiftPackageReference "realm-swift" */;
