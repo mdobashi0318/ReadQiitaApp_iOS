@@ -8,12 +8,12 @@
 import Foundation
 import ComposableArchitecture
 
-struct ArticleListReducer: ReducerProtocol {
+struct ArticleListReducer: Reducer {
     
     struct State: Equatable {
         var list: [Article] = []
         var isLoading = false
-        var alert: AlertState<Action>?
+        @PresentationState var alert: AlertState<Action.Alert>?
         var getTime = Date()
     }
     
@@ -23,11 +23,17 @@ struct ArticleListReducer: ReducerProtocol {
         case response([Article])
         case error(String)
         case timeCheck
-        case alertDismissed
+        case alert(PresentationAction<Alert>)
+        
+        
+        enum Alert: Equatable {
+            case retry
+        }
     }
     
+    private enum CancelID { case cancel }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .getList:
             state.isLoading = true
@@ -40,6 +46,7 @@ struct ArticleListReducer: ReducerProtocol {
                     await send(.error(error.message))
                 }
             }
+            .cancellable(id: CancelID.cancel, cancelInFlight: true)
             
         case let .response(list):
             state.isLoading = false
@@ -56,7 +63,7 @@ struct ArticleListReducer: ReducerProtocol {
                 ButtonState(role: .cancel, label: {
                     TextState("閉じる")
                 })
-                ButtonState(role: .none, action: Action.getList, label: {
+                ButtonState(role: .none, action: .retry, label: {
                     TextState("再接続")
                 })
             }
@@ -77,9 +84,11 @@ struct ArticleListReducer: ReducerProtocol {
                     await send(.getList)
                 }
             }
-            
-        case .alertDismissed:
-            state.alert = nil
+        case .alert(.presented(.retry)):
+            return .run { send in
+                await send(.getList)
+            }
+        case .alert:
             return .none
         }
     }

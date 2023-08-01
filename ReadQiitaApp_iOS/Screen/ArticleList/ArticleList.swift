@@ -39,7 +39,8 @@ struct ArticleList: View {
                         }
                 }
             }
-            .alert(self.store.scope(state: \.alert, action: { $0 }), dismiss: .alertDismissed)
+            .alert(store: self.store.scope(state:
+                                            \.$alert, action: { .alert($0) }))
         }
         
         
