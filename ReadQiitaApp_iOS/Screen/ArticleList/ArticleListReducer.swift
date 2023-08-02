@@ -20,8 +20,7 @@ struct ArticleListReducer: Reducer {
     
     enum Action: Equatable {
         case getList
-        case response([Article])
-        case error(String)
+        case response(TaskResult<[Article]>)
         case timeCheck
         case alert(PresentationAction<Alert>)
         
@@ -31,6 +30,8 @@ struct ArticleListReducer: Reducer {
         }
     }
     
+    @Dependency(\.qiitaArticleClient) var articleClient
+    
     private enum CancelID { case cancel }
     
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
@@ -38,25 +39,18 @@ struct ArticleListReducer: Reducer {
         case .getList:
             state.isLoading = true
             return .run { send in
-                do {
-                    let response: [Article] = try await APIManager.get(request: "items")
-                    await send(.response(response))
-                } catch {
-                    let error = error as! APIError
-                    await send(.error(error.message))
-                }
+                await send(.response(TaskResult { try await self.articleClient.fetch() }))
             }
             .cancellable(id: CancelID.cancel, cancelInFlight: true)
             
-        case let .response(list):
+        case let .response(.success(list)):
             state.isLoading = false
             state.list = list
             state.getTime = Date()
             return .none
             
-        case let .error(error):
+        case .response(.failure):
             state.isLoading = false
-            print(error)
             state.alert = AlertState {
                 TextState("通信に失敗しました")
             } actions: {
