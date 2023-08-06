@@ -51,9 +51,12 @@ struct ArticleList: View {
         List {
             ForEach(0..<viewStore.list.count, id: \.self) { row in
                 NavigationLink(destination:
-                                ArticleView(id: viewStore.list[row].id,
-                                            title: viewStore.list[row].title,
-                                            url: viewStore.list[row].url)
+                                ArticleView(store: .init(initialState: ArticleReducer.State(id: viewStore.list[row].id,
+                                                                                            title: viewStore.list[row].title,
+                                                                                            url: viewStore.list[row].url),
+                                                         reducer: {
+                    ArticleReducer()
+                }))
                 ) {
                     ArticleRow(article: viewStore.list[row])
                 }

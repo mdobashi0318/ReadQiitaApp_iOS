@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct BookmarkList: View {
     
-    @ObservedResults(BookmarkModel.self) var bookmarks
+    @State var bookmarks = BookmarkModel.findAll()
     
     @Binding var isBookmarkSheet: Bool
     
@@ -19,13 +18,16 @@ struct BookmarkList: View {
             List {
                 ForEach(bookmarks) { bookmark in
                     NavigationLink(destination:
-                                    ArticleView(id: bookmark.id, title: bookmark.title, url: bookmark.url)
+                                    ArticleView(store: .init(initialState: ArticleReducer.State(id: bookmark.id,
+                                                                                                title: bookmark.title,
+                                                                                                url: bookmark.url),
+                                                             reducer: {
+                        ArticleReducer()
+                    }))
                     ) {
                         Text(bookmark.title)
                     }
-
                 }
-                .onDelete(perform: $bookmarks.remove)
             }
             .navigationTitle("ブックマーク")
             .toolbar {
@@ -36,6 +38,9 @@ struct BookmarkList: View {
                         Image(systemName: "xmark")
                     }
                 }
+            }
+            .task {
+                bookmarks = BookmarkModel.findAll()
             }
         }
     }
