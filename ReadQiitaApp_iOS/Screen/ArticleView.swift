@@ -134,14 +134,4 @@ fileprivate extension AlertState where Action == ArticleReducer.Action.Alert {
         }
     }
     
-    
-    static func errorAlert(message: String) -> Self {
-        AlertState {
-            TextState(message)
-        } actions: {
-            ButtonState {
-                TextState("OK")
-            }
-        }
-    }
 }

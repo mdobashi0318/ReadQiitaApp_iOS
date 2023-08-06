@@ -13,6 +13,7 @@ import ComposableArchitecture
 struct BookmarkClient {
     var addBookmark: @Sendable (String, String, String) async throws -> String
     var deleteBookmark: @Sendable (String) async throws -> String
+    var getAll: @Sendable () async -> [BookmarkModel]
 }
 
 
@@ -38,5 +39,7 @@ extension BookmarkClient: DependencyKey {
     }, deleteBookmark: { id in
         try BookmarkModel.delete(id: id)
         return ""
+    }, getAll: {
+        return BookmarkModel.findAll()
     })
 }

@@ -33,7 +33,11 @@ struct ArticleList: View {
                     }
                 }
                 .fullScreenCover(isPresented: $isBookmarkSheet) {
-                    BookmarkList(isBookmarkSheet: $isBookmarkSheet)
+                    BookmarkList(isBookmarkSheet: $isBookmarkSheet,
+                                 store: .init(initialState: BookmarkListReducer.State(),
+                                              reducer: {
+                        BookmarkListReducer()
+                    }))
                         .onDisappear {
                             viewStore.send(.timeCheck)
                         }
