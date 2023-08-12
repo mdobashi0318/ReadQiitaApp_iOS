@@ -18,9 +18,17 @@ struct BookmarkListReducer: Reducer {
     enum Action: Equatable {
         case getAll
         case getResponce(TaskResult<[BookmarkModel]>)
+        case closeButtonTapped
+        case delegate(Delegate)
+        
+        enum Delegate: Equatable {
+            case close
+        }
     }
     
     @Dependency(\.bookmarkClient) var bookmarkClient
+    
+    @Dependency(\.dismiss) var dismiss
     
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
@@ -35,6 +43,13 @@ struct BookmarkListReducer: Reducer {
         case .getResponce(.failure):
             state.bookmarks = []
             return .none
+        case .closeButtonTapped:
+            return .run { send in
+                await send(.delegate(.close))
+                await self.dismiss()
+            }
+        case .delegate:
+            return .none
         }
     }
 }
@@ -44,8 +59,6 @@ struct BookmarkListReducer: Reducer {
 // MARK: - View
 
 struct BookmarkList: View {
-    
-    @Binding var isBookmarkSheet: Bool
     
     let store: StoreOf<BookmarkListReducer>
     
@@ -70,7 +83,7 @@ struct BookmarkList: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {
-                            isBookmarkSheet.toggle()
+                            viewStore.send(.closeButtonTapped)
                         }) {
                             Image(systemName: "xmark")
                         }
@@ -87,8 +100,7 @@ struct BookmarkList: View {
 
 struct BookmarkList_Previews: PreviewProvider {
     static var previews: some View {
-        BookmarkList(isBookmarkSheet: .constant(true),
-                     store: .init(initialState: BookmarkListReducer.State(), reducer: { BookmarkListReducer() })
+        BookmarkList(store: .init(initialState: BookmarkListReducer.State(), reducer: { BookmarkListReducer() })
         )
     }
 }

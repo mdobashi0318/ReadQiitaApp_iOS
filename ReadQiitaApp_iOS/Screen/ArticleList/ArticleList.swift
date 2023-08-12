@@ -12,8 +12,6 @@ struct ArticleList: View {
     
     var store: StoreOf<ArticleListReducer>
     
-    @State var isBookmarkSheet = false
-    
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             NavigationView {
@@ -26,25 +24,19 @@ struct ArticleList: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
-                            isBookmarkSheet.toggle()
+                            viewStore.send(.bookmarkButtonTapped)
                         }) {
                             Image(systemName: "bookmark.fill")
                         }
                     }
                 }
-                .fullScreenCover(isPresented: $isBookmarkSheet) {
-                    BookmarkList(isBookmarkSheet: $isBookmarkSheet,
-                                 store: .init(initialState: BookmarkListReducer.State(),
-                                              reducer: {
-                        BookmarkListReducer()
-                    }))
-                        .onDisappear {
-                            viewStore.send(.timeCheck)
-                        }
-                }
             }
             .alert(store: self.store.scope(state:
                                             \.$alert, action: { .alert($0) }))
+            .fullScreenCover(store: store.scope(state: \.$bookmarkList,
+                                                action: ArticleListReducer.Action.bookmarkList),
+                             content: BookmarkList.init(store:)
+            )
         }
         
         
