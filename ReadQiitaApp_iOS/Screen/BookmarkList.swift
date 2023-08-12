@@ -9,6 +9,8 @@ import SwiftUI
 import ComposableArchitecture
 
 
+// MARK: - Reducer
+
 struct BookmarkListReducer: Reducer {
     struct State: Equatable {
         var bookmarks = [BookmarkModel]()
