@@ -29,7 +29,8 @@ struct ArticleListReducer: Reducer {
         case alert(PresentationAction<Alert>)
         case bookmarkButtonTapped
         case bookmarkList(PresentationAction<BookmarkListReducer.Action>)
-        
+        case refresh
+        case cancel
         
         enum Alert: Equatable {
             case retry
@@ -37,6 +38,7 @@ struct ArticleListReducer: Reducer {
     }
     
     @Dependency(\.qiitaArticleClient) var articleClient
+    @Dependency(\.date) var date
     
     private enum CancelID { case cancel }
     
@@ -44,16 +46,17 @@ struct ArticleListReducer: Reducer {
         Reduce<State, Action> { state, action in
             switch action {
             case .getList:
+                state.list = []
                 state.isLoading = true
                 return .run { send in
                     await send(.response(TaskResult { try await self.articleClient.fetch() }))
                 }
-                .cancellable(id: CancelID.cancel, cancelInFlight: true)
+                .cancellable(id: CancelID.cancel)
                 
             case let .response(.success(list)):
                 state.isLoading = false
                 state.list = list
-                state.getTime = Date()
+                state.getTime = date.now
                 return .none
                 
             case .response(.failure):
@@ -80,6 +83,7 @@ struct ArticleListReducer: Reducer {
                     let _getTime = dateFormat.date(from: getTimeStr) ?? Date()
                     let _nowTime = dateFormat.date(from: nowTimeStr) ?? Date()
                     let dateSubtraction: Int = Int(_nowTime.timeIntervalSince(_getTime))
+                    await send(.cancel)
                     
                     if isList || dateSubtraction >= 300 {
                         await send(.getList)
@@ -105,6 +109,13 @@ struct ArticleListReducer: Reducer {
             case .bookmarkList:
                 return .none
                 
+            case .refresh:
+                return .run { send in
+                    await send(.cancel)
+                    await send(.getList)
+                }
+            case .cancel:
+                return .cancel(id: CancelID.cancel)
             }
         }
         .ifLet(\.$bookmarkList, action: /Action.bookmarkList) {
@@ -174,7 +185,7 @@ struct ArticleList: View {
         .listStyle(.plain)
         .navigationTitle(Text("ReadQiitaApp"))
         .refreshable {
-            viewStore.send(.getList)
+            viewStore.send(.refresh)
         }
         .task {
             viewStore.send(.timeCheck)
