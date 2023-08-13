@@ -36,8 +36,7 @@ struct BookmarkListReducer: Reducer {
         switch action {
         case .getAll:
             return .run { send in
-                await send(.getResponce(TaskResult { await self.bookmarkClient.getAll() }))
-                
+                await send(.getResponce(TaskResult { try await self.bookmarkClient.getAll() }))
             }
         case let .getResponce(.success(list)):
             state.bookmarks = list

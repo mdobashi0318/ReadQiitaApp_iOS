@@ -91,6 +91,17 @@ class BookmarkModel: Object, Identifiable {
 
 
 
-struct BookmarkError: Error {
+struct BookmarkError: Error, Equatable {
     let message: String
+}
+
+
+extension BookmarkModel {
+    static let mock = {
+        let model = BookmarkModel()
+        model.id = "id"
+        model.title = "title"
+        model.url = "url"
+        return model
+    }()
 }

@@ -13,7 +13,7 @@ import ComposableArchitecture
 struct BookmarkClient {
     var addBookmark: @Sendable (String, String, String) async throws -> String
     var deleteBookmark: @Sendable (String) async throws -> String
-    var getAll: @Sendable () async -> [BookmarkModel]
+    var getAll: @Sendable () async throws -> [BookmarkModel]
 }
 
 
