@@ -81,7 +81,7 @@ struct ArticleListReducer: Reducer {
                     let _nowTime = dateFormat.date(from: nowTimeStr) ?? Date()
                     let dateSubtraction: Int = Int(_nowTime.timeIntervalSince(_getTime))
                     
-                    if isList || dateSubtraction >= 10 {
+                    if isList || dateSubtraction >= 300 {
                         await send(.getList)
                     }
                 }
