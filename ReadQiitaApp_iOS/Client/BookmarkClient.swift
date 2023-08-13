@@ -14,6 +14,7 @@ struct BookmarkClient {
     var addBookmark: @Sendable (String, String, String) async throws -> String
     var deleteBookmark: @Sendable (String) async throws -> String
     var getAll: @Sendable () async throws -> [BookmarkModel]
+    var isAdded: @Sendable (String) async -> Bool
 }
 
 
@@ -41,5 +42,7 @@ extension BookmarkClient: DependencyKey {
         return ""
     }, getAll: {
         return BookmarkModel.findAll()
+    }, isAdded: { id in
+        return BookmarkModel.isAdded(id: id)
     })
 }

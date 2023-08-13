@@ -24,6 +24,7 @@
 		6D379E6D29F023A500465FD0 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D379E6C29F023A500465FD0 /* Article.swift */; };
 		6D379E6F29F023D700465FD0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D379E6E29F023D700465FD0 /* User.swift */; };
 		6D379E7129F0242E00465FD0 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D379E7029F0242E00465FD0 /* Tags.swift */; };
+		6D40347B2A88CF3C003AB767 /* ArticleReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D40347A2A88CF3C003AB767 /* ArticleReducerTests.swift */; };
 		6DA3F4572A222C60006AD350 /* ArticleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA3F4562A222C60006AD350 /* ArticleRow.swift */; };
 		6DA856C62A7AA9E40031477A /* QiitaArticleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA856C52A7AA9E40031477A /* QiitaArticleClient.swift */; };
 		6DB59C4C2A22FABB007B5E39 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB59C4B2A22FABB007B5E39 /* WebView.swift */; };
@@ -68,6 +69,7 @@
 		6D379E6C29F023A500465FD0 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		6D379E6E29F023D700465FD0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6D379E7029F0242E00465FD0 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		6D40347A2A88CF3C003AB767 /* ArticleReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleReducerTests.swift; sourceTree = "<group>"; };
 		6D749DEE2A1FAC0D001AFDBB /* ReadQiitaApp-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ReadQiitaApp-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		6DA3F4562A222C60006AD350 /* ArticleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRow.swift; sourceTree = "<group>"; };
 		6DA856C52A7AA9E40031477A /* QiitaArticleClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaArticleClient.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				6D36E9872A87A4E80002F48B /* ArticleListReducerTests.swift */,
+				6D40347A2A88CF3C003AB767 /* ArticleReducerTests.swift */,
 				6D3120F62A88BF4C00F0BA35 /* BookmarkListReducerTests.swift */,
 			);
 			path = ReadQiitaApp_iOSTests;
@@ -398,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D40347B2A88CF3C003AB767 /* ArticleReducerTests.swift in Sources */,
 				6D3120F72A88BF4C00F0BA35 /* BookmarkListReducerTests.swift in Sources */,
 				6D36E9882A87A4E80002F48B /* ArticleListReducerTests.swift in Sources */,
 			);

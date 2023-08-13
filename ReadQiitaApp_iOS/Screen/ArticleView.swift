@@ -31,6 +31,7 @@ struct ArticleReducer: Reducer {
         case deleteBookmarkResponse(TaskResult<String>)
         case alert(PresentationAction<Alert>)
         case getBookmark
+        case getBookmarkResponse(TaskResult<Bool>)
         
         enum Alert: Equatable {}
     }
@@ -43,18 +44,18 @@ struct ArticleReducer: Reducer {
         case .addButtonTapped:
             return .run { [id = state.id, title = state.title, url = state.url] send in
                 await send(.addBookmarkResponse(TaskResult { try await self.bookmarkClient.addBookmark(id, title, url) } ))
-                await send(.getBookmark)
             }
             
         case .deleteButtonTapped:
             return .run { [id = state.id] send in
                 await send(.deleteBookmarkResponse( TaskResult { try await self.bookmarkClient.deleteBookmark(id) }))
-                await send(.getBookmark)
             }
             
         case .addBookmarkResponse(.success):
             state.alert = .bookmark(isAdd: true)
-            return .none
+            return .run { send in
+                await send(.getBookmark)
+            }
         case let .addBookmarkResponse(.failure(error)):
             if let error = error as? BookmarkError {
                 state.alert = .errorAlert(message: error.message)
@@ -67,7 +68,9 @@ struct ArticleReducer: Reducer {
             return .none
         case .deleteBookmarkResponse(.success):
             state.alert = .bookmark(isAdd: false)
-            return .none
+            return .run { send in
+                await send(.getBookmark)
+            }
         case let .deleteBookmarkResponse(.failure(error)):
             if let error = error as? BookmarkError {
                 state.alert = .errorAlert(message: error.message)
@@ -76,7 +79,13 @@ struct ArticleReducer: Reducer {
             }
             return .none
         case .getBookmark:
-            state.isBookmark = BookmarkModel.isAdded(id: state.id)
+            return .run { [id = state.id] send in
+                await send(.getBookmarkResponse(TaskResult { await self.bookmarkClient.isAdded(id) } ))
+            }
+        case let .getBookmarkResponse(.success(isAdded)):
+            state.isBookmark = isAdded
+            return .none
+        case .getBookmarkResponse:
             return .none
         }
     }
@@ -123,7 +132,7 @@ struct ArticleView: View {
 
 // MARK: - extension
 
-fileprivate extension AlertState where Action == ArticleReducer.Action.Alert {
+extension AlertState where Action == ArticleReducer.Action.Alert {
     static func bookmark(isAdd: Bool) -> Self {
         AlertState {
             TextState(isAdd ? "ブックマークに追加しました。" : "ブックマークに削除しました。")
