@@ -57,14 +57,12 @@ final class ArticleReducerTests: XCTestCase {
                               withDependencies: {
             $0.qiitaArticleClient.fetch = { [.mock] }
             $0.bookmarkClient.deleteBookmark = { _ in "" }
-            $0.bookmarkClient.isAdded = { _ in true }
         })
         
         await store.send(.getBookmarkResponse(.success(true))) {
             $0.isBookmark = true
         }
         
-        store.dependencies.bookmarkClient.isAdded = { _ in false }
         await store.send(.deleteButtonTapped)
         await store.receive(.deleteBookmarkResponse(.success(""))) {
             $0.alert = .bookmark(isAdd: false)
