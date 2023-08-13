@@ -38,7 +38,7 @@ struct APIManager {
 }
 
 
-struct APIError: Error {
+struct APIError: Error, Equatable {
     var message: String = ""
     
     init(message: String) {

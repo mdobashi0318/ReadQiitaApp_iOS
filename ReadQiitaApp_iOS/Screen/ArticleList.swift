@@ -61,16 +61,7 @@ struct ArticleListReducer: Reducer {
                 
             case .response(.failure):
                 state.isLoading = false
-                state.alert = AlertState {
-                    TextState("通信に失敗しました")
-                } actions: {
-                    ButtonState(role: .cancel, label: {
-                        TextState("閉じる")
-                    })
-                    ButtonState(role: .none, action: .retry, label: {
-                        TextState("再接続")
-                    })
-                }
+                state.alert = .connectError()
                 return .none
                 
             case .timeCheck:

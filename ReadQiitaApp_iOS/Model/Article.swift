@@ -25,3 +25,29 @@ extension Article: Equatable {
     }
 }
 
+
+
+extension Article {
+    static let mock = Self(
+        created_at: "", likes_count: 0, title: "Test Article",
+                user: User(description: nil,
+                           facebook_id: nil,
+                           followees_count: 0,
+                           followers_count: 0,
+                           github_login_name: nil,
+                           id: "",
+                           items_count: 0,
+                           linkedin_id: nil,
+                           location: nil,
+                           name: "",
+                           organization: nil,
+                           permanent_id: 0,
+                           profile_image_url: nil,
+                           team_only: false,
+                           twitter_screen_name: nil,
+                           website_url: nil),
+                tags: [Tags(name: "", versions: [])],
+                url: "",
+                id: ""
+    )
+}
