@@ -19,7 +19,7 @@ final class ArticleListReducerTests: XCTestCase {
         let store = TestStore(initialState: ArticleListReducer.State(),
                               reducer: { ArticleListReducer() },
                               withDependencies: {
-            $0.qiitaArticleClient.fetch = { [.mock] }
+            $0.qiitaArticleClient.fetchList = { [.mock] }
             $0.date.now = date
         })
         
@@ -40,7 +40,7 @@ final class ArticleListReducerTests: XCTestCase {
         let store = TestStore(initialState: ArticleListReducer.State(),
                               reducer: { ArticleListReducer() },
                               withDependencies: {
-            $0.qiitaArticleClient.fetch = { throw APIError(message: "") }
+            $0.qiitaArticleClient.fetchList = { throw APIError(message: "") }
         })
         
         await store.send(.getList) {
@@ -60,7 +60,7 @@ final class ArticleListReducerTests: XCTestCase {
         let store = TestStore(initialState: ArticleListReducer.State(),
                               reducer: { ArticleListReducer() },
                               withDependencies: {
-            $0.qiitaArticleClient.fetch = { [.mock] }
+            $0.qiitaArticleClient.fetchList = { [.mock] }
             $0.date.now = date
         })
  
@@ -85,7 +85,7 @@ final class ArticleListReducerTests: XCTestCase {
         let store = TestStore(initialState: ArticleListReducer.State(),
                               reducer: { ArticleListReducer() },
                               withDependencies: {
-            $0.qiitaArticleClient.fetch = { [.mock] }
+            $0.qiitaArticleClient.fetchList = { [.mock] }
             $0.date.now = date
         })
         
@@ -124,7 +124,7 @@ final class ArticleListReducerTests: XCTestCase {
         let store = TestStore(initialState: ArticleListReducer.State(),
                               reducer: { ArticleListReducer() },
                               withDependencies: {
-            $0.qiitaArticleClient.fetch = { [.mock] }
+            $0.qiitaArticleClient.fetchList = { [.mock] }
             $0.date.now = date
         })
         
@@ -149,7 +149,8 @@ final class ArticleListReducerTests: XCTestCase {
     func testBookmarkButtonTapped() async {
         let store = TestStore(initialState: ArticleListReducer.State(),
                               reducer: { ArticleListReducer() },
-                              withDependencies: { $0.qiitaArticleClient.fetch = { [] } })
+                              withDependencies: { $0.qiitaArticleClient.fetchList = { [] }
+        })
         
         
         await store.send(.bookmarkButtonTapped) {
@@ -163,7 +164,7 @@ final class ArticleListReducerTests: XCTestCase {
         let store = TestStore(initialState: ArticleListReducer.State(),
                               reducer: { ArticleListReducer() },
                               withDependencies: {
-            $0.qiitaArticleClient.fetch = { [.mock] }
+            $0.qiitaArticleClient.fetchList = { [.mock] }
             $0.date.now = date
         })
         
@@ -193,7 +194,7 @@ final class ArticleListReducerTests: XCTestCase {
         let store = TestStore(initialState: ArticleListReducer.State(),
                               reducer: { ArticleListReducer() },
                               withDependencies: {
-            $0.qiitaArticleClient.fetch = { [.mock] }
+            $0.qiitaArticleClient.fetchList = { [.mock] }
             $0.date.now = date
         })
         

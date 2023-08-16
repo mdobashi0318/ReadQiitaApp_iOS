@@ -18,6 +18,7 @@ struct ArticleListReducer: Reducer {
         var isLoading = false
         @PresentationState var alert: AlertState<Action.Alert>?
         @PresentationState var bookmarkList: BookmarkListReducer.State?
+        @PresentationState var article: ArticleReducer.State?
         var getTime = Date()
     }
     
@@ -31,6 +32,10 @@ struct ArticleListReducer: Reducer {
         case bookmarkList(PresentationAction<BookmarkListReducer.Action>)
         case refresh
         case cancel
+        case receiveArticle(URL)
+        case articleResponse(TaskResult<Article>)
+        case openArticle(PresentationAction<ArticleReducer.Action>)
+        case closeButtonTapped
         
         enum Alert: Equatable {
             case retry
@@ -49,7 +54,7 @@ struct ArticleListReducer: Reducer {
                 state.list = []
                 state.isLoading = true
                 return .run { send in
-                    await send(.response(TaskResult { try await self.articleClient.fetch() }))
+                    await send(.response(TaskResult { try await self.articleClient.fetchList() }))
                 }
                 .cancellable(id: CancelID.cancel)
                 
@@ -105,14 +110,38 @@ struct ArticleListReducer: Reducer {
                     await send(.cancel)
                     await send(.getList)
                 }
+                
             case .cancel:
                 return .cancel(id: CancelID.cancel)
+                
+            case let .receiveArticle(url):
+                return .run { send in
+                    let id = url.absoluteString.replacingOccurrences(of: "readQiitaApp://deeplink?", with: "")
+                    await send(.articleResponse( TaskResult { try await articleClient.fetch(id) }))
+                }
+            case .openArticle:
+                return .none
+                
+            case let .articleResponse(.success(article)):
+                state.article = ArticleReducer.State(id: article.id, title: article.title, url: article.url)
+                return .none
+                
+            case .articleResponse(.failure):
+                state.alert = .connectError()
+                return .none
+                
+            case .closeButtonTapped:
+                state.article = nil
+                return .none
             }
+            
         }
         .ifLet(\.$bookmarkList, action: /Action.bookmarkList) {
             BookmarkListReducer()
         }
-           
+        .ifLet(\.$article, action: /Action.openArticle) {
+            ArticleReducer()
+        }
     }
     
 }
@@ -152,8 +181,27 @@ struct ArticleList: View {
                                                 action: ArticleListReducer.Action.bookmarkList),
                              content: BookmarkList.init(store:)
             )
+            .fullScreenCover(store: store.scope(state: \.$article,
+                                                action: ArticleListReducer.Action.openArticle),
+                             content: { store in
+                NavigationView {
+                    ArticleView.init(store: store)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button(action: {
+                                    viewStore.send(.closeButtonTapped)
+                                }) {
+                                    Image(systemName: "xmark")
+                                }
+                            }
+                        }
+                }
+            }
+            )
+            .onOpenURL {
+                viewStore.send(.receiveArticle($0))
+            }
         }
-        
         
     }
     

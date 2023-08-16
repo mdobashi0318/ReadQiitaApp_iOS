@@ -10,7 +10,8 @@ import ComposableArchitecture
 
 
 struct QiitaArticleClient {
-    var fetch: @Sendable () async throws -> [Article]
+    var fetchList: @Sendable () async throws -> [Article]
+    var fetch: @Sendable (String) async throws -> Article
 }
 
 
@@ -24,8 +25,10 @@ extension DependencyValues {
 
 
 extension QiitaArticleClient: DependencyKey {
-    static let liveValue = Self(fetch: {
+    static let liveValue = Self(fetchList: {
         return try await APIManager.get(request: "items")
+    }, fetch: { id in
+        return try await APIManager.get(request: "items/\(id)")
     })
 }
 
