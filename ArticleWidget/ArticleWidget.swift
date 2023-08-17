@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), articles: Article.mockArray)
+        SimpleEntry(date: Date(), articles: Article.placeholder)
     }
     
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
@@ -67,8 +67,8 @@ struct ArticleWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             ArticleWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Article List")
+        .description("You can see the latest 3 articles")
         .supportedFamilies([.systemMedium])
     }
 

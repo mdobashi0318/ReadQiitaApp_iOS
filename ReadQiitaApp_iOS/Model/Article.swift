@@ -63,7 +63,7 @@ extension Article {
     
     static let mockArray = [
         Self(
-            created_at: "2023-01-02T00:00:00+09:00", likes_count: 10, title: "Test Article1",
+            created_at: "2023-01-02T00:00:00+09:00", likes_count: 10, title: "Article1",
             user: User(description: nil,
                        facebook_id: nil,
                        followees_count: 0,
@@ -85,7 +85,7 @@ extension Article {
             id: "baf5c130c67d6b3c9fef"
         ),
         Self(
-            created_at: "2023-01-03T00:00:00+09:00", likes_count: 100, title: "Test Article2",
+            created_at: "2023-01-03T00:00:00+09:00", likes_count: 100, title: "Article2",
             user: User(description: nil,
                        facebook_id: nil,
                        followees_count: 0,
@@ -107,7 +107,7 @@ extension Article {
             id: "89a13293e53221cb62d4"
         ),
         Self(
-            created_at: "", likes_count: 0, title: "Test Article3",
+            created_at: "", likes_count: 0, title: "Article3",
             user: User(description: nil,
                        facebook_id: nil,
                        followees_count: 0,
@@ -127,6 +127,76 @@ extension Article {
             tags: [Tags(name: "", versions: [])],
             url: "https://www.apple.com/jp/ipad/",
             id: "7bf689dacfa05cb9971d"
+        ),
+    ]
+    
+    
+    static let placeholder = [
+        Self(
+            created_at: "", likes_count: 0, title: "",
+            user: User(description: nil,
+                       facebook_id: nil,
+                       followees_count: 0,
+                       followers_count: 0,
+                       github_login_name: nil,
+                       id: "",
+                       items_count: 0,
+                       linkedin_id: nil,
+                       location: nil,
+                       name: "",
+                       organization: "",
+                       permanent_id: 0,
+                       profile_image_url: nil,
+                       team_only: false,
+                       twitter_screen_name: nil,
+                       website_url: nil),
+            tags: [Tags(name: "", versions: [])],
+            url: "",
+            id: ""
+        ),
+        Self(
+            created_at: "", likes_count: 0, title: "",
+            user: User(description: nil,
+                       facebook_id: nil,
+                       followees_count: 0,
+                       followers_count: 0,
+                       github_login_name: nil,
+                       id: "",
+                       items_count: 0,
+                       linkedin_id: nil,
+                       location: nil,
+                       name: "",
+                       organization: "",
+                       permanent_id: 0,
+                       profile_image_url: nil,
+                       team_only: false,
+                       twitter_screen_name: nil,
+                       website_url: nil),
+            tags: [Tags(name: "", versions: [])],
+            url: "",
+            id: ""
+        ),
+        Self(
+            created_at: "", likes_count: 0, title: "",
+            user: User(description: nil,
+                       facebook_id: nil,
+                       followees_count: 0,
+                       followers_count: 0,
+                       github_login_name: nil,
+                       id: "",
+                       items_count: 0,
+                       linkedin_id: nil,
+                       location: nil,
+                       name: "",
+                       organization: "",
+                       permanent_id: 0,
+                       profile_image_url: nil,
+                       team_only: false,
+                       twitter_screen_name: nil,
+                       website_url: nil),
+            tags: [Tags(name: "", versions: [])],
+            url: "",
+            id: ""
         ),
     ]
 }
