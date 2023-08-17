@@ -23,12 +23,8 @@ struct Provider: TimelineProvider {
             var entries: [SimpleEntry] = []
             let currentDate = Date()
             let entryDate = Calendar.current.date(byAdding: .minute, value: 30, to: currentDate)!
-            
-            for _ in 0 ..< 48 {
-//                let entry = SimpleEntry(date: entryDate, articles: try! await APIManager.get(request: "items" + Article.per_page(3)))
-                let entry = SimpleEntry(date: entryDate, articles: Article.mockArray)
-                entries.append(entry)
-            }
+            let entry = SimpleEntry(date: entryDate, articles: try! await APIManager.get(request: "items" + Article.per_page(3)))
+            entries.append(entry)
             
             let timeline = Timeline(entries: entries, policy: .atEnd)
             completion(timeline)
