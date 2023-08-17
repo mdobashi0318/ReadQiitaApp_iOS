@@ -211,4 +211,47 @@ final class ArticleListReducerTests: XCTestCase {
             $0.list = [.mock]
         }
     }
+    
+    
+    
+    func testReceiveArticleSuccess() async {
+        let store = TestStore(initialState: ArticleListReducer.State(),
+                              reducer: { ArticleListReducer() },
+                              withDependencies: {
+            $0.qiitaArticleClient.fetchList = { [.mock] }
+            $0.qiitaArticleClient.fetch = { _ in .mock }
+        })
+        
+        
+        await store.send(.receiveArticle(URL(string: "readQiitaApp://deeplink?" + Article.mockArray[0].url)!))
+        await store.receive(.articleResponse(.success(.mock))) {
+            $0.article = ArticleReducer.State(id: Article.mock.id,
+                                              title: Article.mock.title,
+                                              url: Article.mock.url
+            )
+        }
+        
+        
+        await store.send(.closeButtonTapped) {
+            $0.article = nil
+        }
+    }
+    
+    
+    
+    func testReceiveArticleFailure() async {
+        let store = TestStore(initialState: ArticleListReducer.State(),
+                              reducer: { ArticleListReducer() },
+                              withDependencies: {
+            $0.qiitaArticleClient.fetchList = { [.mock] }
+            $0.qiitaArticleClient.fetch = { _ in throw APIError(message: "") }
+        })
+        
+        
+        await store.send(.receiveArticle(URL(string: Article.mockArray[0].url)!))
+        await store.receive(.articleResponse(.failure(APIError(message: "")))) {
+            $0.alert = .connectError()
+        }
+    }
+    
 }
