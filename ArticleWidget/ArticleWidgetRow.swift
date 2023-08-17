@@ -12,13 +12,18 @@ struct ArticleWidgetRow: View {
     let article: Article
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("@\(article.user.id)")
-                .font(.subheadline)
-            Text(article.title)
-                .font(.title3)
-                .bold()
+        HStack {
+            VStack(alignment: .leading) {
+                Text("@\(article.user.id)")
+                    .font(.subheadline)
+                Text(article.title)
+                    .font(.title3)
+                    .bold()
+            }
+            .padding([.bottom], 1)
+            Spacer()
         }
+        .padding([.leading, .trailing])
     }
 }
 
