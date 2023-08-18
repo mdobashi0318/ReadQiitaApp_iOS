@@ -38,3 +38,40 @@ extension AlertState where Action == ArticleListReducer.Action.Alert {
     }
 }
 
+
+
+extension AlertState where Action == BookmarkListReducer.Action.Alert {
+
+    
+    static let confirmArticleOpen = {
+        AlertState {
+            TextState("今開いている画面を閉じて、別の記事を開きますがよろしいですか？")
+        } actions: {
+            ButtonState(role: .cancel, label: {
+                TextState("いいえ")
+            })
+            ButtonState(role: .none, action: .opneArticle, label: {
+                TextState("はい")
+            })
+        }
+    }
+}
+
+
+extension AlertState where Action == ArticleReducer.Action.Alert {
+
+    static let confirmArticleOpen = {
+        AlertState {
+            TextState("今開いている画面を閉じて、別の記事を開きますがよろしいですか？")
+        } actions: {
+            ButtonState(role: .cancel, label: {
+                TextState("いいえ")
+            })
+            ButtonState(role: .none, action: .opneArticle, label: {
+                TextState("はい")
+            })
+        }
+    }
+}
+
+

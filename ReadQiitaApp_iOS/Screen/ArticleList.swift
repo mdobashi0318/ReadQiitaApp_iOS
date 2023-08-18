@@ -20,6 +20,7 @@ struct ArticleListReducer: Reducer {
         @PresentationState var bookmarkList: BookmarkListReducer.State?
         @PresentationState var article: ArticleReducer.State?
         var getTime = Date()
+        var receiveURL: URL?
     }
     
     
@@ -36,6 +37,7 @@ struct ArticleListReducer: Reducer {
         case articleResponse(TaskResult<Article>)
         case openArticle(PresentationAction<ArticleReducer.Action>)
         case closeButtonTapped
+        case requestArticle
         
         enum Alert: Equatable {
             case retry
@@ -90,6 +92,7 @@ struct ArticleListReducer: Reducer {
                 return .run { send in
                     await send(.getList)
                 }
+                
             case .alert:
                 return .none
                 
@@ -100,6 +103,11 @@ struct ArticleListReducer: Reducer {
             case .bookmarkList(.presented(.delegate(.close))):
                 return .run { send in
                     await send(.timeCheck)
+                }
+                
+            case .bookmarkList(.presented(.delegate(.openArticle))):
+                return .run { send in
+                    await send(.requestArticle)
                 }
                 
             case .bookmarkList:
@@ -115,10 +123,29 @@ struct ArticleListReducer: Reducer {
                 return .cancel(id: CancelID.cancel)
                 
             case let .receiveArticle(url):
-                return .run { send in
-                    let id = url.absoluteString.replacingOccurrences(of: "readQiitaApp://deeplink?", with: "")
-                    await send(.articleResponse( TaskResult { try await articleClient.fetch(id) }))
+                state.receiveURL = url
+                
+                if state.bookmarkList != nil {
+                    return .run { send in
+                        await send(.bookmarkList(.presented(.receiveArticle)))
+                    }
                 }
+                
+                if state.article != nil {
+                    return .run { send in
+                        await send(.openArticle(.presented(.receiveArticle)))
+                    }
+                }
+                
+                return .run { send in
+                    await send(.requestArticle)
+                }
+                
+            case .openArticle(.presented(.delegate(.openArticle))):
+                return .run { send in
+                    await send(.requestArticle)
+                }
+                
             case .openArticle:
                 return .none
                 
@@ -133,6 +160,13 @@ struct ArticleListReducer: Reducer {
             case .closeButtonTapped:
                 state.article = nil
                 return .none
+                
+            case .requestArticle:
+                guard let url = state.receiveURL else { return .none }
+                return .run { send in
+                    let id = url.absoluteString.replacingOccurrences(of: "readQiitaApp://deeplink?", with: "")
+                    await send(.articleResponse( TaskResult { try await articleClient.fetch(id) }))
+                }
             }
             
         }
