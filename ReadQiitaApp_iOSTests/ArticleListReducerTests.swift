@@ -13,7 +13,7 @@ import ComposableArchitecture
 
 @MainActor
 final class ArticleListReducerTests: XCTestCase {
-
+    
     func testGetListSuccess() async {
         let date = Date()
         let store = TestStore(initialState: ArticleListReducer.State(),
@@ -63,7 +63,7 @@ final class ArticleListReducerTests: XCTestCase {
             $0.qiitaArticleClient.fetchList = { [.mock] }
             $0.date.now = date
         })
- 
+        
         await store.send(.timeCheck)
         await store.receive(.cancel)
         await store.receive(.getList) {
@@ -90,9 +90,9 @@ final class ArticleListReducerTests: XCTestCase {
         })
         
         await store.send(.getList) {
-                $0.isLoading = true
-                $0.list = []
-            }
+            $0.isLoading = true
+            $0.list = []
+        }
         
         await store.receive(.response(.success([.mock]))) {
             $0.isLoading = false
@@ -129,9 +129,9 @@ final class ArticleListReducerTests: XCTestCase {
         })
         
         await store.send(.getList) {
-                $0.isLoading = true
-                $0.list = []
-            }
+            $0.isLoading = true
+            $0.list = []
+        }
         
         await store.receive(.response(.success([.mock]))) {
             $0.isLoading = false
@@ -261,4 +261,90 @@ final class ArticleListReducerTests: XCTestCase {
         }
     }
     
+    
+    
+    func testReceiveArticleBookmarkSheet() async {
+        
+        let store = TestStore(initialState: ArticleListReducer.State(),
+                              reducer: { ArticleListReducer() },
+                              withDependencies: {
+            $0.qiitaArticleClient.fetchList = { [.mock] }
+            $0.qiitaArticleClient.fetch = { _ in .mock }
+            
+        })
+        
+        await store.send(.bookmarkButtonTapped) {
+            $0.bookmarkList = BookmarkListReducer.State()
+        }
+        
+        
+        await store.send(.receiveArticle(URL(string: "readQiitaApp://deeplink?" + Article.mockArray[0].url)!)) {
+            $0.receiveURL = (URL(string: "readQiitaApp://deeplink?" + Article.mockArray[0].url)!)
+        }
+        await store.receive(.bookmarkList(.presented(.receiveArticle))) {
+            $0.bookmarkList?.alert = .confirmArticleOpen()
+        }
+        await store.send(.bookmarkList(.presented(.alert(.presented(.opneArticle)))))
+        await store.receive(.bookmarkList(.presented(.delegate(.openArticle))))
+        await store.receive(.bookmarkList(.dismiss)) {
+            $0.bookmarkList = nil
+        }
+        await store.receive(.requestArticle)
+        await store.receive(.articleResponse(.success(.mock))) {
+            $0.article = ArticleReducer.State(id: Article.mock.id,
+                                              title: Article.mock.title,
+                                              url: Article.mock.url
+            )
+        }
+        await store.send(.closeButtonTapped) {
+            $0.article = nil
+        }
+    }
+    
+    
+    func testReceiveArticleArticleSheet() async {
+        
+        let store = TestStore(initialState: ArticleListReducer.State(),
+                              reducer: { ArticleListReducer() },
+                              withDependencies: {
+            $0.qiitaArticleClient.fetchList = { [.mock] }
+            $0.qiitaArticleClient.fetch = { _ in .mock }
+            
+        })
+        
+        await store.send(.receiveArticle(URL(string: "readQiitaApp://deeplink?" + Article.mockArray[0].url)!)) {
+            $0.receiveURL = (URL(string: "readQiitaApp://deeplink?" + Article.mockArray[0].url)!)
+        }
+        await store.receive(.requestArticle)
+        await store.receive(.articleResponse(.success(.mock))) {
+            $0.article = ArticleReducer.State(id: Article.mock.id,
+                                              title: Article.mock.title,
+                                              url: Article.mock.url
+            )
+        }
+        
+        
+        
+        await store.send(.receiveArticle(URL(string: "readQiitaApp://deeplink?" + Article.mockArray[1].url)!)) {
+            $0.receiveURL = (URL(string: "readQiitaApp://deeplink?" + Article.mockArray[1].url)!)
+        }
+        await store.receive(.openArticle(.presented(.receiveArticle))) {
+            $0.article?.alert = .confirmArticleOpen()
+        }
+        await store.send(.openArticle(.presented(.alert(.presented(.opneArticle)))))
+        await store.receive(.openArticle(.presented(.delegate(.openArticle))))
+        await store.receive(.openArticle(.dismiss)) {
+            $0.article = nil
+        }
+        await store.receive(.requestArticle)
+        await store.receive(.articleResponse(.success(.mock))) {
+            $0.article = ArticleReducer.State(id: Article.mock.id,
+                                              title: Article.mock.title,
+                                              url: Article.mock.url
+            )
+        }
+        await store.send(.closeButtonTapped) {
+            $0.article = nil
+        }
+    }
 }
