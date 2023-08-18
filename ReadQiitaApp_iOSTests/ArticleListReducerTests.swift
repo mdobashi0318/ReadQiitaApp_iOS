@@ -223,7 +223,11 @@ final class ArticleListReducerTests: XCTestCase {
         })
         
         
-        await store.send(.receiveArticle(URL(string: "readQiitaApp://deeplink?" + Article.mockArray[0].url)!))
+        await store.send(.receiveArticle(URL(string: "readQiitaApp://deeplink?" + Article.mockArray[0].url)!)) {
+            $0.receiveURL = (URL(string: "readQiitaApp://deeplink?" + Article.mockArray[0].url)!)
+        }
+        await store.receive(.requestArticle)
+        
         await store.receive(.articleResponse(.success(.mock))) {
             $0.article = ArticleReducer.State(id: Article.mock.id,
                                               title: Article.mock.title,
@@ -248,7 +252,10 @@ final class ArticleListReducerTests: XCTestCase {
         })
         
         
-        await store.send(.receiveArticle(URL(string: Article.mockArray[0].url)!))
+        await store.send(.receiveArticle(URL(string: "readQiitaApp://deeplink?" + Article.mockArray[0].url)!)) {
+            $0.receiveURL = (URL(string: "readQiitaApp://deeplink?" + Article.mockArray[0].url)!)
+        }
+        await store.receive(.requestArticle)
         await store.receive(.articleResponse(.failure(APIError(message: "")))) {
             $0.alert = .connectError()
         }
