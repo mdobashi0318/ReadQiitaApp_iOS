@@ -36,6 +36,19 @@ extension AlertState where Action == ArticleListReducer.Action.Alert {
             })
         }
     }
+    
+    static let connectRequestArticleError = {
+        AlertState {
+            TextState("通信に失敗しました")
+        } actions: {
+            ButtonState(role: .cancel, label: {
+                TextState("閉じる")
+            })
+            ButtonState(role: .none, action: .retryRequestArticle, label: {
+                TextState("再接続")
+            })
+        }
+    }
 }
 
 

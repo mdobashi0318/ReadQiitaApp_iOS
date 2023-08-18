@@ -52,6 +52,16 @@ final class ArticleListReducerTests: XCTestCase {
             $0.isLoading = false
             $0.alert = .connectError()
         }
+        
+        await store.send(.alert(.presented(.retry)))
+        await store.receive(.getList) {
+            $0.isLoading = true
+            $0.list = []
+        }
+        await store.receive(.response(.failure(APIError(message: "")))) {
+            $0.isLoading = false
+            $0.alert = .connectError()
+        }
     }
     
     
@@ -257,8 +267,12 @@ final class ArticleListReducerTests: XCTestCase {
         }
         await store.receive(.requestArticle)
         await store.receive(.articleResponse(.failure(APIError(message: "")))) {
-            $0.alert = .connectError()
+            $0.alert = .connectRequestArticleError()
         }
+        
+        await store.send(.alert(.presented(.retryRequestArticle)))
+        await store.receive(.requestArticle)
+        await store.receive(.articleResponse(.failure(APIError(message: ""))))
     }
     
     

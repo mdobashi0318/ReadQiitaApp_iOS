@@ -41,6 +41,7 @@ struct ArticleListReducer: Reducer {
         
         enum Alert: Equatable {
             case retry
+            case retryRequestArticle
         }
     }
     
@@ -91,6 +92,11 @@ struct ArticleListReducer: Reducer {
             case .alert(.presented(.retry)):
                 return .run { send in
                     await send(.getList)
+                }
+
+            case .alert(.presented(.retryRequestArticle)):
+                return .run { send in
+                    await send(.requestArticle)
                 }
                 
             case .alert:
@@ -154,7 +160,7 @@ struct ArticleListReducer: Reducer {
                 return .none
                 
             case .articleResponse(.failure):
-                state.alert = .connectError()
+                state.alert = .connectRequestArticleError()
                 return .none
                 
             case .closeButtonTapped:
