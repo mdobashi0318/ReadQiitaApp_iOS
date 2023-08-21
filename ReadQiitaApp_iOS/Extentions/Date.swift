@@ -22,4 +22,12 @@ extension Date {
         }
     }
     
+    
+    /// 現在日時と比較する
+    /// - Parameter date: 比較したい日時
+    /// - Returns: 差分を返す
+    func diffFromCurrentDate(_ date: Date) -> Int {
+        Int(Format.dateFormat(date: self, addSec: true).timeIntervalSince(date))
+    }
+    
 }

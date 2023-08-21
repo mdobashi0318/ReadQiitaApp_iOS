@@ -31,9 +31,12 @@ struct ArticleReducer: Reducer {
         case deleteBookmarkResponse(TaskResult<String>)
         case alert(PresentationAction<Alert>)
         case getBookmark
-        case getBookmarkResponse(TaskResult<Bool>)
+        case getBookmarkResponse(TaskResult<BookmarkModel?>)
         case receiveArticle
         case delegate(Delegate)
+        case checkNeedToUpdateBookmark(BookmarkModel)
+        case getArticleResponse(TaskResult<Article>)
+        case updateBookmarkResponse(TaskResult<String>)
         
         enum Alert: Equatable {
             case opneArticle
@@ -48,6 +51,8 @@ struct ArticleReducer: Reducer {
     
     @Dependency(\.bookmarkClient) var bookmarkClient
     @Dependency(\.dismiss) var dismiss
+    @Dependency(\.qiitaArticleClient) var articleClient
+    @Dependency(\.date) var date
     
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
@@ -101,12 +106,18 @@ struct ArticleReducer: Reducer {
             
         case .getBookmark:
             return .run { [id = state.id] send in
-                await send(.getBookmarkResponse(TaskResult { await self.bookmarkClient.isAdded(id) } ))
+                await send(.getBookmarkResponse(TaskResult { await self.bookmarkClient.fetch(id) } ))
             }
             
-        case let .getBookmarkResponse(.success(isAdded)):
-            state.isBookmark = isAdded
-            return .none
+        case let .getBookmarkResponse(.success(bookmark)):
+            guard let bookmark else {
+                state.isBookmark = false
+                return .none
+            }
+            state.isBookmark = true
+            return .run { send in
+                await send(.checkNeedToUpdateBookmark(bookmark))
+            }
             
         case .getBookmarkResponse:
             return .none
@@ -116,6 +127,27 @@ struct ArticleReducer: Reducer {
             
         case .receiveArticle:
             state.alert = .confirmArticleOpen()
+            return .none
+            
+        case let .checkNeedToUpdateBookmark(bookmark):
+            guard date.now.diffFromCurrentDate(Format.dateFromString(string: bookmark.updated_at, addSec: true)) > 60 * 60 * 24 else {
+                return .none
+            }
+            
+            return .run { send in
+                await send(.getArticleResponse( TaskResult { try await self.articleClient.fetch(bookmark.id) }))
+            }
+            
+        case let .getArticleResponse(.success(article)):
+            return .run { send in
+                await send(.updateBookmarkResponse( TaskResult { try await self.bookmarkClient.updateBookmark(article.id, article.title, article.url) }))
+            }
+            
+        case .getArticleResponse(.failure(_)):
+            state.alert = .errorAlert(message: "記事の取得に失敗しました")
+            return .none
+            
+        case .updateBookmarkResponse(_):
             return .none
         }
     }
