@@ -14,7 +14,6 @@ import ComposableArchitecture
 struct BookmarkListReducer: Reducer {
     struct State: Equatable {
         var bookmarks = [BookmarkModel]()
-        @PresentationState var alert: AlertState<Action.Alert>?
     }
     
     
@@ -23,16 +22,9 @@ struct BookmarkListReducer: Reducer {
         case getResponce(TaskResult<[BookmarkModel]>)
         case closeButtonTapped
         case delegate(Delegate)
-        case alert(PresentationAction<Alert>)
-        case receiveArticle
         
         enum Delegate: Equatable {
             case close
-            case openArticle
-        }
-        
-        enum Alert: Equatable {
-            case opneArticle
         }
     }
     
@@ -46,37 +38,19 @@ struct BookmarkListReducer: Reducer {
             return .run { send in
                 await send(.getResponce(TaskResult { try await self.bookmarkClient.getAll() }))
             }
-            
         case let .getResponce(.success(list)):
             state.bookmarks = list
             return .none
-            
         case .getResponce(.failure):
             state.bookmarks = []
             return .none
-            
         case .closeButtonTapped:
             return .run { send in
                 await send(.delegate(.close))
                 await self.dismiss()
             }
-            
         case .delegate:
             return .none
-            
-        case .alert(.presented(.opneArticle)):
-            return .run { send in
-                await send(.delegate(.openArticle))
-                await self.dismiss()
-            }
-            
-        case .alert:
-            return .none
-            
-        case .receiveArticle:
-            state.alert = .confirmArticleOpen()
-            return .none
-            
         }
     }
 }
@@ -119,7 +93,6 @@ struct BookmarkList: View {
                 .task {
                     viewStore.send(.getAll)
                 }
-                .alert(store: store.scope(state: \.$alert, action: { .alert($0) }))
             }
         }
     }

@@ -17,7 +17,7 @@ final class ArticleReducerTests: XCTestCase {
         let store = TestStore(initialState: ArticleReducer.State(id: "id", title: "title", url: "url"),
                               reducer: { ArticleReducer() },
                               withDependencies: {
-            $0.qiitaArticleClient.fetchList = { [.mock] }
+            $0.qiitaArticleClient.fetch = { [.mock] }
             $0.bookmarkClient.addBookmark = { _, _, _ in "" }
             $0.bookmarkClient.isAdded = { _ in true }
         })
@@ -40,7 +40,7 @@ final class ArticleReducerTests: XCTestCase {
         let store = TestStore(initialState: ArticleReducer.State(id: "id", title: "title", url: "url"),
                               reducer: { ArticleReducer() },
                               withDependencies: {
-            $0.qiitaArticleClient.fetchList = { [.mock] }
+            $0.qiitaArticleClient.fetch = { [.mock] }
             $0.bookmarkClient.addBookmark = { _, _, _ in throw BookmarkError(message: "") }
         })
         
@@ -55,7 +55,7 @@ final class ArticleReducerTests: XCTestCase {
         let store = TestStore(initialState: ArticleReducer.State(id: "id", title: "title", url: "url"),
                               reducer: { ArticleReducer() },
                               withDependencies: {
-            $0.qiitaArticleClient.fetchList = { [.mock] }
+            $0.qiitaArticleClient.fetch = { [.mock] }
             $0.bookmarkClient.deleteBookmark = { _ in "" }
         })
         
@@ -78,7 +78,7 @@ final class ArticleReducerTests: XCTestCase {
         let store = TestStore(initialState: ArticleReducer.State(id: "id", title: "title", url: "url"),
                               reducer: { ArticleReducer() },
                               withDependencies: {
-            $0.qiitaArticleClient.fetchList = { [.mock] }
+            $0.qiitaArticleClient.fetch = { [.mock] }
             $0.bookmarkClient.deleteBookmark = { _ in throw BookmarkError(message: "") }
         })
         
