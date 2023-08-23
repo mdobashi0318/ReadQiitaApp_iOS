@@ -32,12 +32,22 @@ struct ArticleReducer: Reducer {
         case alert(PresentationAction<Alert>)
         case getBookmark
         case getBookmarkResponse(TaskResult<Bool>)
+        case receiveArticle
+        case delegate(Delegate)
         
-        enum Alert: Equatable {}
+        enum Alert: Equatable {
+            case opneArticle
+        }
+        
+        enum Delegate: Equatable {
+            case openArticle
+        }
+        
     }
     
     
     @Dependency(\.bookmarkClient) var bookmarkClient
+    @Dependency(\.dismiss) var dismiss
     
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
@@ -56,6 +66,7 @@ struct ArticleReducer: Reducer {
             return .run { send in
                 await send(.getBookmark)
             }
+            
         case let .addBookmarkResponse(.failure(error)):
             if let error = error as? BookmarkError {
                 state.alert = .errorAlert(message: error.message)
@@ -64,13 +75,22 @@ struct ArticleReducer: Reducer {
             }
             
             return .none
+            
+        case .alert(.presented(.opneArticle)):
+            return .run { send in
+                await send(.delegate(.openArticle))
+                await self.dismiss()
+            }
+            
         case .alert(_):
             return .none
+            
         case .deleteBookmarkResponse(.success):
             state.alert = .bookmark(isAdd: false)
             return .run { send in
                 await send(.getBookmark)
             }
+            
         case let .deleteBookmarkResponse(.failure(error)):
             if let error = error as? BookmarkError {
                 state.alert = .errorAlert(message: error.message)
@@ -78,14 +98,24 @@ struct ArticleReducer: Reducer {
                 state.alert = .errorAlert(message: "エラーが発生しました。")
             }
             return .none
+            
         case .getBookmark:
             return .run { [id = state.id] send in
                 await send(.getBookmarkResponse(TaskResult { await self.bookmarkClient.isAdded(id) } ))
             }
+            
         case let .getBookmarkResponse(.success(isAdded)):
             state.isBookmark = isAdded
             return .none
+            
         case .getBookmarkResponse:
+            return .none
+            
+        case .delegate:
+            return .none
+            
+        case .receiveArticle:
+            state.alert = .confirmArticleOpen()
             return .none
         }
     }

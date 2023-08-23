@@ -18,7 +18,7 @@ final class BookmarkListReducerTests: XCTestCase {
         let store = TestStore(initialState: BookmarkListReducer.State(),
                               reducer: { BookmarkListReducer() },
                               withDependencies: {
-            $0.qiitaArticleClient.fetch = { [] }
+            $0.qiitaArticleClient.fetchList = { [] }
             $0.bookmarkClient.getAll = { [.mock] }
         })
                 
@@ -33,7 +33,7 @@ final class BookmarkListReducerTests: XCTestCase {
         let store = TestStore(initialState: BookmarkListReducer.State(),
                               reducer: { BookmarkListReducer() },
                               withDependencies: {
-            $0.qiitaArticleClient.fetch = { [] }
+            $0.qiitaArticleClient.fetchList = { [] }
             $0.bookmarkClient.getAll = { throw BookmarkError(message: "") }
         })
         await store.send(.getAll)
@@ -46,7 +46,7 @@ final class BookmarkListReducerTests: XCTestCase {
         let store = TestStore(initialState: BookmarkListReducer.State(),
                               reducer: { BookmarkListReducer() },
                               withDependencies: {
-            $0.qiitaArticleClient.fetch = { [] }
+            $0.qiitaArticleClient.fetchList = { [] }
             $0.bookmarkClient.getAll = { [.mock] }
             $0.dismiss = DismissEffect { dismissed.fulfill() }
         })
