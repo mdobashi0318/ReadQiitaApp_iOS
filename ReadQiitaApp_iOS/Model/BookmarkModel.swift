@@ -140,14 +140,5 @@ extension BookmarkModel {
         model.updated_at = Format.stringFromDate(date: Date(), addSec: true)
         return model
     }()
-    
-    static let mock2 = {
-        let model = BookmarkModel()
-        model.id = "id"
-        model.title = "title"
-        model.url = "url"
-        model.created_at = Format.stringFromDate(date: Date(), addSec: true)
-        model.updated_at = Format.stringFromDate(date: Calendar.current.date(byAdding: .second, value: 60 * 60 * 25, to: Format.dateFormat(addSec: true))!, addSec: true)
-        return model
-    }()
+
 }
