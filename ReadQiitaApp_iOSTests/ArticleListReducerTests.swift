@@ -90,8 +90,8 @@ final class ArticleListReducerTests: XCTestCase {
     
     
     func testTimeCheck300SecAfter() async {
-        let date = Calendar.current.date(byAdding: .second, value: -300, to: Date())!
-        let now = Date()
+        let date = Calendar.current.date(byAdding: .second, value: -300, to: Format.dateFormat(addSec: true))!
+        let now = Format.dateFormat(addSec: true)
         let store = TestStore(initialState: ArticleListReducer.State(),
                               reducer: { ArticleListReducer() },
                               withDependencies: {
@@ -128,8 +128,8 @@ final class ArticleListReducerTests: XCTestCase {
     
     
     func testTimeCheck() async {
-        let date = Calendar.current.date(byAdding: .second, value: -299, to: Date())!
-        let now = Date()
+        let date = Calendar.current.date(byAdding: .second, value: -299, to: Format.dateFormat(addSec: true))!
+        let now = Format.dateFormat(addSec: true)
         
         let store = TestStore(initialState: ArticleListReducer.State(),
                               reducer: { ArticleListReducer() },

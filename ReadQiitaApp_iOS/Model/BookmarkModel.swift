@@ -19,6 +19,10 @@ class BookmarkModel: Object, Identifiable {
     
     @Persisted var url: String = ""
     
+    @Persisted var created_at: String
+    
+    @Persisted var updated_at: String
+    
     
     private static var realm: Realm? {
         var configuration: Realm.Configuration
@@ -42,15 +46,28 @@ class BookmarkModel: Object, Identifiable {
     }
     
     
+    static func find(_ id: String) -> BookmarkModel? {
+        guard let realm,
+              let model = realm.object(ofType: BookmarkModel.self, forPrimaryKey: id)?.freeze() else {
+            return nil
+        }
+        return model
+    }
+    
+    
     static func add(id: String, title: String, url: String) throws {
         guard let realm else {
             return
         }
         
+        let now = Format.stringFromDate(date: Date(), addSec: true)
+        
         let model = BookmarkModel()
         model.id = id
         model.title = title
         model.url = url
+        model.created_at = now
+        model.updated_at = now
         
         do {
             try realm.write {
@@ -58,6 +75,23 @@ class BookmarkModel: Object, Identifiable {
             }
         } catch {
             throw BookmarkError(message: "追加に失敗しました。")
+        }
+    }
+    
+    static func update(id: String, title: String, url: String) throws {
+        guard let realm,
+              let model = realm.object(ofType: BookmarkModel.self, forPrimaryKey: id) else {
+                  return
+              }
+        
+        do {
+            try realm.write {
+                model.title = title
+                model.url = url
+                model.updated_at = Format.stringFromDate(date: Date(), addSec: true)
+            }
+        } catch {
+            throw BookmarkError(message: "更新に失敗しました。")
         }
     }
     
@@ -102,6 +136,9 @@ extension BookmarkModel {
         model.id = "id"
         model.title = "title"
         model.url = "url"
+        model.created_at = Format.stringFromDate(date: Date(), addSec: true)
+        model.updated_at = Format.stringFromDate(date: Date(), addSec: true)
         return model
     }()
+
 }

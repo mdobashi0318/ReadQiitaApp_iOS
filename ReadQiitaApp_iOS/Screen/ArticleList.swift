@@ -74,17 +74,9 @@ struct ArticleListReducer: Reducer {
                 
             case .timeCheck:
                 return .run { [time = state.getTime, isList = state.list.isEmpty] send in
-                    let nowTime: Date = Date()
-                    let dateFormat = DateFormatter()
-                    dateFormat.dateFormat = "HH:mm:ss"
-                    let getTimeStr = dateFormat.string(from: time)
-                    let nowTimeStr = dateFormat.string(from: nowTime)
-                    let _getTime = dateFormat.date(from: getTimeStr) ?? Date()
-                    let _nowTime = dateFormat.date(from: nowTimeStr) ?? Date()
-                    let dateSubtraction: Int = Int(_nowTime.timeIntervalSince(_getTime))
                     await send(.cancel)
                     
-                    if isList || dateSubtraction >= 300 {
+                    if isList || self.date.now.diffFromCurrentDate(time) >= 300 {
                         await send(.getList)
                     }
                 }
