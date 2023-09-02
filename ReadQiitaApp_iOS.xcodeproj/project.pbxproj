@@ -7,24 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D05F7AE2A6C2696009F6BD7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 6D05F7AD2A6C2696009F6BD7 /* ComposableArchitecture */; };
+		6D0850722A9325FA000ADDB0 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0850712A9325FA000ADDB0 /* Format.swift */; };
+		6D0850732A933E80000ADDB0 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0850712A9325FA000ADDB0 /* Format.swift */; };
+		6D19EF242A8008650065AAB0 /* AlertState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D19EF232A8008650065AAB0 /* AlertState.swift */; };
 		6D201C2F29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C2E29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift */; };
 		6D201C3129ED83AE003A3879 /* ArticleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C3029ED83AE003A3879 /* ArticleList.swift */; };
 		6D201C3329ED83AE003A3879 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D201C3229ED83AE003A3879 /* Assets.xcassets */; };
 		6D201C3629ED83AE003A3879 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D201C3529ED83AE003A3879 /* Preview Assets.xcassets */; };
-		6D201C4029ED83AF003A3879 /* ReadQiitaApp_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C3F29ED83AF003A3879 /* ReadQiitaApp_iOSTests.swift */; };
 		6D201C4A29ED83AF003A3879 /* ReadQiitaApp_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C4929ED83AF003A3879 /* ReadQiitaApp_iOSUITests.swift */; };
 		6D201C4C29ED83AF003A3879 /* ReadQiitaApp_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D201C4B29ED83AF003A3879 /* ReadQiitaApp_iOSUITestsLaunchTests.swift */; };
 		6D2C84992A469727007C0FA2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 6D2C84982A469727007C0FA2 /* Realm */; };
 		6D2C849B2A469727007C0FA2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6D2C849A2A469727007C0FA2 /* RealmSwift */; };
 		6D2C849D2A469B66007C0FA2 /* BookmarkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2C849C2A469B66007C0FA2 /* BookmarkModel.swift */; };
+		6D3120F52A88BCDF00F0BA35 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6D3120F42A88BCDF00F0BA35 /* RealmSwift */; };
+		6D3120F72A88BF4C00F0BA35 /* BookmarkListReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3120F62A88BF4C00F0BA35 /* BookmarkListReducerTests.swift */; };
+		6D36E9882A87A4E80002F48B /* ArticleListReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D36E9872A87A4E80002F48B /* ArticleListReducerTests.swift */; };
 		6D379E6D29F023A500465FD0 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D379E6C29F023A500465FD0 /* Article.swift */; };
 		6D379E6F29F023D700465FD0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D379E6E29F023D700465FD0 /* User.swift */; };
 		6D379E7129F0242E00465FD0 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D379E7029F0242E00465FD0 /* Tags.swift */; };
+		6D40347B2A88CF3C003AB767 /* ArticleReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D40347A2A88CF3C003AB767 /* ArticleReducerTests.swift */; };
+		6D6CA74A2A8B66AB0036C210 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D6CA7492A8B66AB0036C210 /* WidgetKit.framework */; };
+		6D6CA74C2A8B66AB0036C210 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D6CA74B2A8B66AB0036C210 /* SwiftUI.framework */; };
+		6D6CA74F2A8B66AB0036C210 /* ArticleWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CA74E2A8B66AB0036C210 /* ArticleWidgetBundle.swift */; };
+		6D6CA7512A8B66AB0036C210 /* ArticleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CA7502A8B66AB0036C210 /* ArticleWidget.swift */; };
+		6D6CA7532A8B66AC0036C210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D6CA7522A8B66AC0036C210 /* Assets.xcassets */; };
+		6D6CA7582A8B66AD0036C210 /* ArticleWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6D6CA7482A8B66AB0036C210 /* ArticleWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6D6CA75D2A8B73220036C210 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D379E6C29F023A500465FD0 /* Article.swift */; };
+		6D6CA75E2A8B73300036C210 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D379E6E29F023D700465FD0 /* User.swift */; };
+		6D6CA75F2A8B73350036C210 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D379E7029F0242E00465FD0 /* Tags.swift */; };
+		6D6CA7632A8B7B9A0036C210 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CA7622A8B7B9A0036C210 /* Date.swift */; };
+		6D6CA7642A8B8BFC0036C210 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CA7622A8B7B9A0036C210 /* Date.swift */; };
+		6D6CA7652A8B8F740036C210 /* ArticleWidgetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CA7602A8B7AE10036C210 /* ArticleWidgetRow.swift */; };
+		6D6CA7682A8B917A0036C210 /* ArticleWidgetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CA7602A8B7AE10036C210 /* ArticleWidgetRow.swift */; };
+		6D6CA7692A8BC3280036C210 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB871EE2A1FB8190095C1CB /* APIManager.swift */; };
 		6DA3F4572A222C60006AD350 /* ArticleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA3F4562A222C60006AD350 /* ArticleRow.swift */; };
+		6DA856C62A7AA9E40031477A /* QiitaArticleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA856C52A7AA9E40031477A /* QiitaArticleClient.swift */; };
 		6DB59C4C2A22FABB007B5E39 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB59C4B2A22FABB007B5E39 /* WebView.swift */; };
 		6DB59C4E2A232A11007B5E39 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB59C4D2A232A11007B5E39 /* ArticleView.swift */; };
-		6DB871ED2A1FB71A0095C1CB /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB871EC2A1FB71A0095C1CB /* ArticleViewModel.swift */; };
 		6DB871EF2A1FB8190095C1CB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB871EE2A1FB8190095C1CB /* APIManager.swift */; };
+		6DC6D9B62A7C0E4A001AD07A /* BookmarkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC6D9B52A7C0E4A001AD07A /* BookmarkClient.swift */; };
+		6DE266612A889587001AE576 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 6DE266602A889587001AE576 /* Realm */; };
 		6DF1FF182A4828D50039CF3B /* BookmarkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF1FF172A4828D50039CF3B /* BookmarkList.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,29 +66,64 @@
 			remoteGlobalIDString = 6D201C2A29ED83AE003A3879;
 			remoteInfo = ReadQiitaApp_iOS;
 		};
+		6D6CA7552A8B66AC0036C210 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D201C2329ED83AE003A3879 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D6CA7472A8B66AB0036C210;
+			remoteInfo = ArticleWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6D6CA7572A8B66AD0036C210 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6D6CA7582A8B66AD0036C210 /* ArticleWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		6D0850712A9325FA000ADDB0 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
+		6D19EF232A8008650065AAB0 /* AlertState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertState.swift; sourceTree = "<group>"; };
 		6D201C2B29ED83AE003A3879 /* ReadQiitaApp_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadQiitaApp_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D201C2E29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadQiitaApp_iOSApp.swift; sourceTree = "<group>"; };
 		6D201C3029ED83AE003A3879 /* ArticleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleList.swift; sourceTree = "<group>"; };
 		6D201C3229ED83AE003A3879 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D201C3529ED83AE003A3879 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6D201C3B29ED83AF003A3879 /* ReadQiitaApp_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadQiitaApp_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D201C3F29ED83AF003A3879 /* ReadQiitaApp_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadQiitaApp_iOSTests.swift; sourceTree = "<group>"; };
 		6D201C4529ED83AF003A3879 /* ReadQiitaApp_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadQiitaApp_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D201C4929ED83AF003A3879 /* ReadQiitaApp_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadQiitaApp_iOSUITests.swift; sourceTree = "<group>"; };
 		6D201C4B29ED83AF003A3879 /* ReadQiitaApp_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadQiitaApp_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6D2C849C2A469B66007C0FA2 /* BookmarkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkModel.swift; sourceTree = "<group>"; };
+		6D3120F62A88BF4C00F0BA35 /* BookmarkListReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListReducerTests.swift; sourceTree = "<group>"; };
+		6D36E9872A87A4E80002F48B /* ArticleListReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListReducerTests.swift; sourceTree = "<group>"; };
 		6D379E6C29F023A500465FD0 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		6D379E6E29F023D700465FD0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6D379E7029F0242E00465FD0 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		6D40347A2A88CF3C003AB767 /* ArticleReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleReducerTests.swift; sourceTree = "<group>"; };
+		6D6CA7482A8B66AB0036C210 /* ArticleWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ArticleWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D6CA7492A8B66AB0036C210 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		6D6CA74B2A8B66AB0036C210 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		6D6CA74E2A8B66AB0036C210 /* ArticleWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWidgetBundle.swift; sourceTree = "<group>"; };
+		6D6CA7502A8B66AB0036C210 /* ArticleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWidget.swift; sourceTree = "<group>"; };
+		6D6CA7522A8B66AC0036C210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6D6CA7542A8B66AC0036C210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D6CA7602A8B7AE10036C210 /* ArticleWidgetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWidgetRow.swift; sourceTree = "<group>"; };
+		6D6CA7622A8B7B9A0036C210 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		6D749DEE2A1FAC0D001AFDBB /* ReadQiitaApp-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ReadQiitaApp-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		6DA3F4562A222C60006AD350 /* ArticleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRow.swift; sourceTree = "<group>"; };
+		6DA856C52A7AA9E40031477A /* QiitaArticleClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaArticleClient.swift; sourceTree = "<group>"; };
 		6DB59C4B2A22FABB007B5E39 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		6DB59C4D2A232A11007B5E39 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
-		6DB871EC2A1FB71A0095C1CB /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
 		6DB871EE2A1FB8190095C1CB /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		6DC6D9B52A7C0E4A001AD07A /* BookmarkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkClient.swift; sourceTree = "<group>"; };
 		6DF1FF172A4828D50039CF3B /* BookmarkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +134,7 @@
 			files = (
 				6D2C849B2A469727007C0FA2 /* RealmSwift in Frameworks */,
 				6D2C84992A469727007C0FA2 /* Realm in Frameworks */,
+				6D05F7AE2A6C2696009F6BD7 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +142,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D3120F52A88BCDF00F0BA35 /* RealmSwift in Frameworks */,
+				6DE266612A889587001AE576 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,16 +154,44 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6D6CA7452A8B66AB0036C210 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D6CA74C2A8B66AB0036C210 /* SwiftUI.framework in Frameworks */,
+				6D6CA74A2A8B66AB0036C210 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D0850702A9325EE000ADDB0 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				6D0850712A9325FA000ADDB0 /* Format.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		6D19EF222A8008400065AAB0 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				6D19EF232A8008650065AAB0 /* AlertState.swift */,
+				6D6CA7622A8B7B9A0036C210 /* Date.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		6D201C2229ED83AE003A3879 = {
 			isa = PBXGroup;
 			children = (
 				6D201C2D29ED83AE003A3879 /* ReadQiitaApp_iOS */,
 				6D201C3E29ED83AF003A3879 /* ReadQiitaApp_iOSTests */,
 				6D201C4829ED83AF003A3879 /* ReadQiitaApp_iOSUITests */,
+				6D6CA74D2A8B66AB0036C210 /* ArticleWidget */,
 				6D201C2C29ED83AE003A3879 /* Products */,
+				6D36E9892A87A50A0002F48B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +201,7 @@
 				6D201C2B29ED83AE003A3879 /* ReadQiitaApp_iOS.app */,
 				6D201C3B29ED83AF003A3879 /* ReadQiitaApp_iOSTests.xctest */,
 				6D201C4529ED83AF003A3879 /* ReadQiitaApp_iOSUITests.xctest */,
+				6D6CA7482A8B66AB0036C210 /* ArticleWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +215,9 @@
 				6D41AB252A489B3C0093D6C7 /* View */,
 				6D41AB262A489BBE0093D6C7 /* Model */,
 				6D41AB282A489C710093D6C7 /* Manager */,
+				6DA856C42A7AA9D70031477A /* Client */,
+				6D0850702A9325EE000ADDB0 /* Other */,
+				6D19EF222A8008400065AAB0 /* Extentions */,
 				6D201C3229ED83AE003A3879 /* Assets.xcassets */,
 				6D201C3429ED83AE003A3879 /* Preview Content */,
 			);
@@ -142,7 +235,9 @@
 		6D201C3E29ED83AF003A3879 /* ReadQiitaApp_iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				6D201C3F29ED83AF003A3879 /* ReadQiitaApp_iOSTests.swift */,
+				6D36E9872A87A4E80002F48B /* ArticleListReducerTests.swift */,
+				6D40347A2A88CF3C003AB767 /* ArticleReducerTests.swift */,
+				6D3120F62A88BF4C00F0BA35 /* BookmarkListReducerTests.swift */,
 			);
 			path = ReadQiitaApp_iOSTests;
 			sourceTree = "<group>";
@@ -156,10 +251,19 @@
 			path = ReadQiitaApp_iOSUITests;
 			sourceTree = "<group>";
 		};
+		6D36E9892A87A50A0002F48B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D6CA7492A8B66AB0036C210 /* WidgetKit.framework */,
+				6D6CA74B2A8B66AB0036C210 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6D41AB242A489B1C0093D6C7 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				6D41AB272A489C1D0093D6C7 /* ArticleList */,
+				6D201C3029ED83AE003A3879 /* ArticleList.swift */,
 				6DB59C4D2A232A11007B5E39 /* ArticleView.swift */,
 				6DF1FF172A4828D50039CF3B /* BookmarkList.swift */,
 			);
@@ -186,21 +290,33 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		6D41AB272A489C1D0093D6C7 /* ArticleList */ = {
-			isa = PBXGroup;
-			children = (
-				6D201C3029ED83AE003A3879 /* ArticleList.swift */,
-				6DB871EC2A1FB71A0095C1CB /* ArticleViewModel.swift */,
-			);
-			path = ArticleList;
-			sourceTree = "<group>";
-		};
 		6D41AB282A489C710093D6C7 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				6DB871EE2A1FB8190095C1CB /* APIManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		6D6CA74D2A8B66AB0036C210 /* ArticleWidget */ = {
+			isa = PBXGroup;
+			children = (
+				6D6CA74E2A8B66AB0036C210 /* ArticleWidgetBundle.swift */,
+				6D6CA7502A8B66AB0036C210 /* ArticleWidget.swift */,
+				6D6CA7602A8B7AE10036C210 /* ArticleWidgetRow.swift */,
+				6D6CA7522A8B66AC0036C210 /* Assets.xcassets */,
+				6D6CA7542A8B66AC0036C210 /* Info.plist */,
+			);
+			path = ArticleWidget;
+			sourceTree = "<group>";
+		};
+		6DA856C42A7AA9D70031477A /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				6DA856C52A7AA9E40031477A /* QiitaArticleClient.swift */,
+				6DC6D9B52A7C0E4A001AD07A /* BookmarkClient.swift */,
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,15 +329,18 @@
 				6D201C2729ED83AE003A3879 /* Sources */,
 				6D201C2829ED83AE003A3879 /* Frameworks */,
 				6D201C2929ED83AE003A3879 /* Resources */,
+				6D6CA7572A8B66AD0036C210 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6D6CA7562A8B66AC0036C210 /* PBXTargetDependency */,
 			);
 			name = ReadQiitaApp_iOS;
 			packageProductDependencies = (
 				6D2C84982A469727007C0FA2 /* Realm */,
 				6D2C849A2A469727007C0FA2 /* RealmSwift */,
+				6D05F7AD2A6C2696009F6BD7 /* ComposableArchitecture */,
 			);
 			productName = ReadQiitaApp_iOS;
 			productReference = 6D201C2B29ED83AE003A3879 /* ReadQiitaApp_iOS.app */;
@@ -241,6 +360,10 @@
 				6D201C3D29ED83AF003A3879 /* PBXTargetDependency */,
 			);
 			name = ReadQiitaApp_iOSTests;
+			packageProductDependencies = (
+				6DE266602A889587001AE576 /* Realm */,
+				6D3120F42A88BCDF00F0BA35 /* RealmSwift */,
+			);
 			productName = ReadQiitaApp_iOSTests;
 			productReference = 6D201C3B29ED83AF003A3879 /* ReadQiitaApp_iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -263,6 +386,23 @@
 			productReference = 6D201C4529ED83AF003A3879 /* ReadQiitaApp_iOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		6D6CA7472A8B66AB0036C210 /* ArticleWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D6CA75B2A8B66AD0036C210 /* Build configuration list for PBXNativeTarget "ArticleWidgetExtension" */;
+			buildPhases = (
+				6D6CA7442A8B66AB0036C210 /* Sources */,
+				6D6CA7452A8B66AB0036C210 /* Frameworks */,
+				6D6CA7462A8B66AB0036C210 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArticleWidgetExtension;
+			productName = ArticleWidgetExtension;
+			productReference = 6D6CA7482A8B66AB0036C210 /* ArticleWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -284,6 +424,9 @@
 						CreatedOnToolsVersion = 14.3;
 						TestTargetID = 6D201C2A29ED83AE003A3879;
 					};
+					6D6CA7472A8B66AB0036C210 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 6D201C2629ED83AE003A3879 /* Build configuration list for PBXProject "ReadQiitaApp_iOS" */;
@@ -297,6 +440,7 @@
 			mainGroup = 6D201C2229ED83AE003A3879;
 			packageReferences = (
 				6D2C84972A469727007C0FA2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				6D05F7AC2A6C2696009F6BD7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 6D201C2C29ED83AE003A3879 /* Products */;
 			projectDirPath = "";
@@ -305,6 +449,7 @@
 				6D201C2A29ED83AE003A3879 /* ReadQiitaApp_iOS */,
 				6D201C3A29ED83AF003A3879 /* ReadQiitaApp_iOSTests */,
 				6D201C4429ED83AF003A3879 /* ReadQiitaApp_iOSUITests */,
+				6D6CA7472A8B66AB0036C210 /* ArticleWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -333,6 +478,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6D6CA7462A8B66AB0036C210 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D6CA7532A8B66AC0036C210 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -341,14 +494,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D379E6F29F023D700465FD0 /* User.swift in Sources */,
+				6D6CA7682A8B917A0036C210 /* ArticleWidgetRow.swift in Sources */,
+				6DC6D9B62A7C0E4A001AD07A /* BookmarkClient.swift in Sources */,
+				6D6CA7632A8B7B9A0036C210 /* Date.swift in Sources */,
 				6D201C3129ED83AE003A3879 /* ArticleList.swift in Sources */,
+				6DA856C62A7AA9E40031477A /* QiitaArticleClient.swift in Sources */,
+				6D19EF242A8008650065AAB0 /* AlertState.swift in Sources */,
 				6D201C2F29ED83AE003A3879 /* ReadQiitaApp_iOSApp.swift in Sources */,
 				6DF1FF182A4828D50039CF3B /* BookmarkList.swift in Sources */,
-				6DB871ED2A1FB71A0095C1CB /* ArticleViewModel.swift in Sources */,
 				6D379E7129F0242E00465FD0 /* Tags.swift in Sources */,
 				6D379E6D29F023A500465FD0 /* Article.swift in Sources */,
 				6DB59C4C2A22FABB007B5E39 /* WebView.swift in Sources */,
 				6DB59C4E2A232A11007B5E39 /* ArticleView.swift in Sources */,
+				6D0850722A9325FA000ADDB0 /* Format.swift in Sources */,
 				6DB871EF2A1FB8190095C1CB /* APIManager.swift in Sources */,
 				6DA3F4572A222C60006AD350 /* ArticleRow.swift in Sources */,
 				6D2C849D2A469B66007C0FA2 /* BookmarkModel.swift in Sources */,
@@ -359,7 +517,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D201C4029ED83AF003A3879 /* ReadQiitaApp_iOSTests.swift in Sources */,
+				6D40347B2A88CF3C003AB767 /* ArticleReducerTests.swift in Sources */,
+				6D3120F72A88BF4C00F0BA35 /* BookmarkListReducerTests.swift in Sources */,
+				6D36E9882A87A4E80002F48B /* ArticleListReducerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +529,22 @@
 			files = (
 				6D201C4A29ED83AF003A3879 /* ReadQiitaApp_iOSUITests.swift in Sources */,
 				6D201C4C29ED83AF003A3879 /* ReadQiitaApp_iOSUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D6CA7442A8B66AB0036C210 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D6CA7692A8BC3280036C210 /* APIManager.swift in Sources */,
+				6D6CA75D2A8B73220036C210 /* Article.swift in Sources */,
+				6D6CA7512A8B66AB0036C210 /* ArticleWidget.swift in Sources */,
+				6D6CA7642A8B8BFC0036C210 /* Date.swift in Sources */,
+				6D6CA75F2A8B73350036C210 /* Tags.swift in Sources */,
+				6D0850732A933E80000ADDB0 /* Format.swift in Sources */,
+				6D6CA7652A8B8F740036C210 /* ArticleWidgetRow.swift in Sources */,
+				6D6CA74F2A8B66AB0036C210 /* ArticleWidgetBundle.swift in Sources */,
+				6D6CA75E2A8B73300036C210 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +560,11 @@
 			isa = PBXTargetDependency;
 			target = 6D201C2A29ED83AE003A3879 /* ReadQiitaApp_iOS */;
 			targetProxy = 6D201C4629ED83AF003A3879 /* PBXContainerItemProxy */;
+		};
+		6D6CA7562A8B66AC0036C210 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6D6CA7472A8B66AB0036C210 /* ArticleWidgetExtension */;
+			targetProxy = 6D6CA7552A8B66AC0036C210 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -505,6 +686,7 @@
 		6D201C5029ED83AF003A3879 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -524,7 +706,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "masaharu.dobashi.ReadQiitaApp-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -536,6 +718,7 @@
 		6D201C5129ED83AF003A3879 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -555,7 +738,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "masaharu.dobashi.ReadQiitaApp-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -640,6 +823,62 @@
 			};
 			name = Release;
 		};
+		6D6CA7592A8B66AD0036C210 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7RPFL7EXKD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ArticleWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ArticleWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "masaharu.dobashi.ReadQiitaApp-iOS.ArticleWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6D6CA75A2A8B66AD0036C210 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7RPFL7EXKD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ArticleWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ArticleWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "masaharu.dobashi.ReadQiitaApp-iOS.ArticleWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -679,20 +918,42 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		6D6CA75B2A8B66AD0036C210 /* Build configuration list for PBXNativeTarget "ArticleWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D6CA7592A8B66AD0036C210 /* Debug */,
+				6D6CA75A2A8B66AD0036C210 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6D05F7AC2A6C2696009F6BD7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.0;
+			};
+		};
 		6D2C84972A469727007C0FA2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift";
 			requirement = {
 				kind = exactVersion;
-				version = 10.40.2;
+				version = 10.42.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6D05F7AD2A6C2696009F6BD7 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6D05F7AC2A6C2696009F6BD7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
 		6D2C84982A469727007C0FA2 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6D2C84972A469727007C0FA2 /* XCRemoteSwiftPackageReference "realm-swift" */;
@@ -702,6 +963,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6D2C84972A469727007C0FA2 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		6D3120F42A88BCDF00F0BA35 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6D2C84972A469727007C0FA2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		6DE266602A889587001AE576 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6D2C84972A469727007C0FA2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

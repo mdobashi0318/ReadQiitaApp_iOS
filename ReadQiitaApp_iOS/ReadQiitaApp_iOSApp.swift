@@ -11,7 +11,10 @@ import SwiftUI
 struct ReadQiitaApp_iOSApp: App {
     var body: some Scene {
         WindowGroup {
-            ArticleList()
+            ArticleList(store: .init(initialState: ArticleListReducer.State(),
+                                     reducer: { ArticleListReducer() }
+                                    )
+            )
         }
     }
 }
