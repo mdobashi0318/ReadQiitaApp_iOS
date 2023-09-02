@@ -933,7 +933,7 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
 				kind = exactVersion;
-				version = 1.1.0;
+				version = 1.2.0;
 			};
 		};
 		6D2C84972A469727007C0FA2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
@@ -941,7 +941,7 @@
 			repositoryURL = "https://github.com/realm/realm-swift";
 			requirement = {
 				kind = exactVersion;
-				version = 10.42.0;
+				version = 10.42.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
