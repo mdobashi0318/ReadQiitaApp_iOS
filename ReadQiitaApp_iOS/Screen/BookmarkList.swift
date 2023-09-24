@@ -93,16 +93,20 @@ struct BookmarkList: View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             NavigationView {
                 List {
-                    ForEach(viewStore.bookmarks) { bookmark in
-                        NavigationLink(destination:
-                                        ArticleView(store: .init(initialState: ArticleReducer.State(id: bookmark.id,
-                                                                                                    title: bookmark.title,
-                                                                                                    url: bookmark.url),
-                                                                 reducer: {
-                            ArticleReducer()
-                        }))
-                        ) {
-                            Text(bookmark.title)
+                    if viewStore.bookmarks.isEmpty {
+                        Text("ブックマークがありません")
+                    } else {
+                        ForEach(viewStore.bookmarks) { bookmark in
+                            NavigationLink(destination:
+                                            ArticleView(store: .init(initialState: ArticleReducer.State(id: bookmark.id,
+                                                                                                        title: bookmark.title,
+                                                                                                        url: bookmark.url),
+                                                                     reducer: {
+                                ArticleReducer()
+                            }))
+                            ) {
+                                Text(bookmark.title)
+                            }
                         }
                     }
                 }
