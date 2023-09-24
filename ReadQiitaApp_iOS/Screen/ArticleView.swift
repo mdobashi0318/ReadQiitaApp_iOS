@@ -130,7 +130,7 @@ struct ArticleReducer: Reducer {
             return .none
             
         case let .checkNeedToUpdateBookmark(bookmark):
-            guard date.now.diffFromCurrentDate(Format.dateFromString(string: bookmark.updated_at, addSec: true)) > 60 * 60 * 24 else {
+            guard date.now.diffFromCurrentDate(Format.dateFromString(string: bookmark.updated_at, addSec: true)) > 60 * 60 else {
                 return .none
             }
             
