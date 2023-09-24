@@ -85,6 +85,22 @@ extension AlertState where Action == ArticleReducer.Action.Alert {
             })
         }
     }
+    
+    
+    static let confirmArticleDelete = {
+        AlertState {
+            TextState("記事が見つかりませんでした。")
+        } actions: {
+            ButtonState(role: .cancel, label: {
+                TextState("いいえ")
+            })
+            ButtonState(role: .destructive, action: .deleteBookmark, label: {
+                TextState("削除")
+            })
+        } message: {
+            TextState("記事が削除された可能性があります。ブックマークを削除しますか?")
+        }
+    }
 }
 
 

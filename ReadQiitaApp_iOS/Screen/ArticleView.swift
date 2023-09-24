@@ -40,6 +40,7 @@ struct ArticleReducer: Reducer {
         
         enum Alert: Equatable {
             case opneArticle
+            case deleteBookmark
         }
         
         enum Delegate: Equatable {
@@ -85,6 +86,11 @@ struct ArticleReducer: Reducer {
             return .run { send in
                 await send(.delegate(.openArticle))
                 await self.dismiss()
+            }
+            
+        case .alert(.presented(.deleteBookmark)):
+            return .run { [id = state.id] send in
+                await send(.deleteBookmarkResponse( TaskResult { try await self.bookmarkClient.deleteBookmark(id) }))
             }
             
         case .alert(_):
@@ -144,7 +150,7 @@ struct ArticleReducer: Reducer {
             }
             
         case .getArticleResponse(.failure(_)):
-            state.alert = .errorAlert(message: "記事の取得に失敗しました")
+            state.alert = .confirmArticleDelete()
             return .none
             
         case .updateBookmarkResponse(_):
